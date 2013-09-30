@@ -1,0 +1,17 @@
+# Bear2 theme for i3
+# port by okraits - http://okraits.de
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #888a85 #396EB4 #ffffff #2e9ef4
+client.focused_inactive #888a85 #E4E4E4 #888a85 #484e50
+client.unfocused        #888a85 #E4E4E4 #888a85 #484e50
+client.urgent           #2f343a #900000 #ffffff #900000
+# $i3-theme-bar
+colors {
+	background #000000
+	statusline #ffffff
+	focused_workspace #888a85 #396EB4 #ffffff
+	active_workspace #888a85 #E4E4E4 #888a85
+	inactive_workspace #888a85 #E4E4E4 #888a85
+}

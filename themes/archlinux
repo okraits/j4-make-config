@@ -1,0 +1,20 @@
+# archlinux theme for i3 by okraits
+# http://okraits.de
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #0088CC #0088CC #ffffff #dddddd
+#client.focused_inactive #0C2D3C #0C2D3C #888888 #484e50 # I don't like it that way
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused        #333333 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+# $i3-theme-bar
+colors {
+	background #222222
+	statusline #dddddd
+	separator #666666
+	focused_workspace #0088CC #0088CC #ffffff
+	active_workspace #333333 #333333 #888888
+	inactive_workspace #333333 #333333 #888888
+	urgent_workspace   #2f343a #900000 #ffffff
+}

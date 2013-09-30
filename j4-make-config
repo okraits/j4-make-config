@@ -1,0 +1,134 @@
+#!/usr/bin/python
+
+# i3 theme switcher by Oliver Kraitschy
+# http://okraits.de
+
+from os import path, getenv, listdir
+from sys import argv
+
+VERSION = "0.5"
+
+# global variables
+i3_PATH = ""
+THEME_PATH = ""
+i3_BASECONFIG = ""
+i3_CONFIG = ""
+noTheme = False
+windowActive = False
+barActive = False
+windowText = ""
+barText = ""
+
+def detectConfigDir():
+    global i3_PATH
+    if path.exists(getenv("HOME") + "/.i3/config"):
+        i3_PATH = getenv("HOME") + "/.i3"
+        return True
+    if getenv("XDG_CONFIG_HOME") is not None:
+        if path.exists(getenv("XDG_CONFIG_HOME") + "/i3/config"):
+            i3_PATH = getenv("XDG_CONFIG_HOME") + "/i3"
+            return True
+    if path.exists(getenv("HOME") + "/.config/i3/config"):
+        i3_PATH = getenv("HOME") + "/.config/i3"
+        return True
+    else:
+        return False
+
+def printUsageInfo(version):
+    info = """i3 theme switcher
+Version %s
+By Oliver Kraitschy http://okraits.de\n
+Usage:
+======
+Set a specific theme:
+\tj4-make-config <theme-name>
+Create config file without including a theme:
+\tj4-make-config none""" % (version)
+    print(info)
+
+def printThemeList():
+    try:
+        themes = listdir(THEME_PATH)
+    except (IOError, OSError):
+        print("\nError: No themes found.")
+        exit(1)
+    themes.sort()
+    print("\nAvailable themes:")
+    print("=================")
+    print("\n".join(themes))
+
+if __name__ == "__main__":
+    # detect i3 configuration directory
+    if not detectConfigDir():
+        print("Error: i3 config file could not be found.")
+        exit(1)
+    else:
+        # set paths
+        THEME_PATH = i3_PATH + "/themes"
+        i3_BASECONFIG = i3_PATH + "/config.base"
+        i3_CONFIG = i3_PATH + "/config"
+    
+    # wrong number of cli arguments
+    if (len(argv) != 2):
+        printUsageInfo(VERSION)
+        printThemeList()
+        exit(0)
+    
+    # we must not include a theme in the config file
+    if argv[1] == "none":
+        noTheme = True
+    
+    if not noTheme:
+        # try to open given filename
+        try:
+            themefile = open(THEME_PATH + "/" + argv[1], "r")
+        except IOError:
+            print("Error: given theme does not exist.")
+            printThemeList()
+            exit(1)
+        
+        # read themefile, create section strings
+        for line in themefile:
+            if "$i3-theme-window" in line:
+                windowActive = True
+                barActive = False
+            elif "$i3-theme-bar" in line:
+                windowActive = False
+                barActive = True
+            else:
+                if windowActive and not barActive:
+                    windowText += line
+                elif not windowActive and barActive:
+                    barText += line
+        themefile.close()
+    
+    # try to open i3 base config file
+    try:
+        basefile = open(i3_BASECONFIG, "r")
+    except IOError:
+        print("Error: i3 base config file does not exist.")
+        exit(1)
+    
+    # try to open i3 config file
+    try:
+        configfile = open(i3_CONFIG, "w")
+    except IOError:
+        print("Error: i3 config file does not exist.")
+        exit(1)
+    
+    # read base config file, write content to config file
+    # and insert theme config at the right place
+    for line in basefile:
+        if "$i3-theme-window" in line:
+            if not noTheme:
+                configfile.write(windowText)
+        elif "$i3-theme-bar" in line:
+            if not noTheme:
+                configfile.write(barText)
+        else:
+            configfile.write(line)
+    basefile.close()
+    configfile.flush()
+    configfile.close()
+    
+    exit(0)

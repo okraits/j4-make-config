@@ -1,0 +1,174 @@
+# README file for j4-make-config script bundled with i3 theme files
+
+Contents:
+=========
+
+1. Purpose
+2. License
+3. Authorship and feedback, contributions etc.
+4. Installation
+5. Usage
+6. Changelog
+7. FAQ
+8. Todo list
+
+1. Purpose
+==========
+
+The purpose of this script is to easily set and switch between several
+sets of configuration options ("themes") for the i3 window manager.
+These sets of configuration options are supposed to contain options
+regarding the looks of the window manager, that is window colors,
+borderstyle, i3bar colors, fonts, etc.
+There's a bunch of theme files which are distributed together with
+the j4-make-config script to give the user a variety of configurations to
+choose from.
+
+2. License
+==========
+
+This software is released under the terms of the
+GNU General Public License v2:
+
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+
+The theme files are either ports of themes from other window managers,
+assembled from i3 configurations found on the net or original themes of
+Oliver Kraitschy. Oliver Kraitschy does not have any copyright for
+themes ported from other window managers or found on the net.
+
+3. Authorship and feedback, contributions etc.
+==============================================
+
+This software was initiated by Oliver Kraitschy (http://okraits.de).
+Please feel free to send him feedback and contributions regarding
+bugreports, feature requests, improvements, themes, etc. via mail at
+okraits@arcor.de. You can also contact him on irc.twice-irc.de in #i3.
+
+4. Installation
+===============
+
+Extract the tarball you downloaded with
+
+tar -xzvf j4-make-config-X.X.tar.gz
+
+where X.X is the version you downloaded.
+
+
+The resulting directory contains a python script named j4-make-config. Place
+it anywhere in your $PATH, for example in /home/<yourUserName>/bin, and
+ensure that it is executable.
+
+
+The resulting directory also contains a directory named themes. It
+contains all themes distributed with j4-make-config. You must move it to the
+directory where your i3 config file is.
+
+
+As the next step, you should prepare your i3 configuration file for
+j4-make-config. If you already have window color settings in your i3
+configuration file, you should completely replace them with a marker
+which gets replaced with the window configuration included in the chosen
+theme file. We demonstrate this with the default color settings
+(normally they are not explicitly set in the i3 configuration file):
+
+Replace the default colors
+
+# class                 border  backgr. text    indicator
+client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
+with the following marker:
+
+# $i3-theme-window
+
+If you didn't configure custom window colors yet, you can simply add the
+line "# $i3-theme-window" at the end of your i3 configuration file.
+
+
+You can apply the same procedure to prepare your bar section for
+j4-make-config. If we take the default bar colors for example (normally they
+are not explicitly set in the i3 configuration file), your bar section
+should look like this:
+
+bar {
+	status_command i3status
+    colors {
+        background #000000
+        statusline #ffffff
+        separator #666666
+
+        focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
+}
+
+Replace the whole colors section with the following marker:
+
+# $i3-theme-bar
+
+If you didn't configure custom bar colors yet, you can simply add the
+line "# $i3-theme-bar" at the bottom of your bar section. Either way,
+this marker will get replaced with the bar configuration included in the
+chosen theme file.
+
+As a last step, you should rename (move in the unix world) your config
+file to config.base, as j4-make-config generates a config file out of
+config.base and the theme file it gets as a commandline argument.
+
+As an example, i have provided my config.base in the tarball.
+
+5. Usage
+========
+
+Using j4-make-config, you can easily change the window and bar colors.
+Additionally, you can override the window borderstyle and font settings,
+if you specify them in a theme file.
+
+6. Changelog
+============
+
+v0.4 18-09-2013:
+
+- use "# $i3-theme-window" and "# $i3-theme-bar" as markers, both in the
+  theme files and in config.base
+- "i3-theme none" generates a config file without including a theme
+- i3-theme looks for the i3 configuration in $HOME/.i3,
+  $XDG_CONFIG_HOME/i3 and $HOME/.config/i3
+- added debian and ubuntu themes (thanks lasers!)
+
+v0.3 17-09-2013:
+
+- First public release
+
+
+7. FAQ
+======
+
+This README and the script and themes aren't complete or perfect at all,
+so please do not hesitate to contact me for questions, bugreports,
+ feature requests, comments, improvements, etc. via:
+
+Mail: okraits@arcor.de
+IRC: #i3 on irc.twice-irc.de
+
+8. Todo list
+============
+
+These are things which are planned to be done, at some point
+in the future.
+
+- rename i3-theme to j4-make-config
+- make j4-make-config a more general config-generation tool:
+  = have one general config file config.base
+  = have several host-specific config files config.hostname
+  = then issue j4-make-config -t <theme> -h <hostname>
+- have more than 2 markers, that means: exchange each marker
+  in the config.base file with the corresponding marker in
+  the theme file (or in a host-specific config file)
+- optional: j4-make-config starts i3 after it generated a
+  temporary config file

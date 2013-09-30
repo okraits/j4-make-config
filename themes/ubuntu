@@ -1,0 +1,25 @@
+# ubuntu theme for i3wm by lasers
+
+# You can uncomment two *urgent* lines to get better urgent visibility.
+
+# $i3-theme-window
+# client                border  backgr. text    indica.
+client.focused          #dd4814 #dd4814 #ffffff #902a07
+client.focused_inactive #5e2750 #5e2750 #aea79f #5e2750
+client.unfocused        #5e2750 #5e2750 #aea79f #5e2750 
+client.urgent           #77216f #77216f #ffffff #efb73e
+##client.urgent         #efb73e #efb73e #ffffff #efb73e
+
+# $i3-theme-bar
+colors {
+	background #2c001e
+	separator  #333333
+	statusline #aea79f
+
+	# workspace         border  backgr. text
+	focused_workspace   #dd4814 #dd4814 #ffffff
+	active_workspace    #902a07 #902a07 #aea79f
+	inactive_workspace  #902a07 #902a07 #aea79f
+	urgent_workspace    #77216f #77216f #ffffff
+	##urgent_workspace  #efb73e #efb73e #ffffff
+}
