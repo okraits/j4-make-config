@@ -162,7 +162,7 @@ IRC: #i3 on irc.twice-irc.de
 These are things which are planned to be done, at some point
 in the future.
 
-- rename i3-theme to j4-make-config
+- rename i3-theme to j4-make-config in all files (themes etc.)
 - make j4-make-config a more general config-generation tool:
   = have one general config file config.base
   = have several host-specific config files config.hostname
@@ -172,3 +172,6 @@ in the future.
   the theme file (or in a host-specific config file)
 - optional: j4-make-config starts i3 after it generated a
   temporary config file
+- display usage info with j4-make-config --help
+- running j4-make-config without arguments makes j4-make-config
+  use the last used options - these must be stored in a rc file
