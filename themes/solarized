@@ -1,17 +1,105 @@
-# solarized i3 theme taken from Leho Kraav
-# https://github.com/lkraav/
+# solarized theme for i3 by lasers
+
+# Hi! If you don't like cyan, you can uncomment two lines first before
+# you try anything else. If you like borders, I picked a gray color that will
+# serve as an universal border color for the bar and the containers.
+# I hope you like it. Cheers. :>
+
+# $i3-status
+color_bad = "#DC322F"
+color_degraded = "#B58900"
+color_good = "#859900"
+color_separator = "#268BD2"
 
 # $i3-theme-window
-# class                 border  backgr. text    indicator
-client.focused          #859900 #859900 #fdf6e3 #2e9ef4
-client.focused_inactive #268bd2 #268bd2 #fdf6e3 #484e50
-client.unfocused        #333333 #93a1a1 #fdf6e3 #292d2e
-#client.urgent not defined yet
+# solarized accents
+set $yellow	#b58900
+set $orange	#cb4b16
+set $red	#dc322f
+set $magenta	#d33682
+set $violet	#6c71c4
+set $blue	#268bd2
+set $cyan	#2aa198
+set $green	#859900
+
+# solarized dark
+set $baseA3 #002b36
+set $baseA2 #073642
+set $baseA1 #586e75
+set $baseA0 #657b83
+set $baseB0 #839496
+set $baseB1 #93a1a1
+set $baseB2 #eee8d5
+set $baseB3 #fdf6e3
+set $custom #1c5766
+
+# solarized light
+#set $baseA3 #fdf6e3
+#set $baseA2 #eee8d5
+#set $baseA1 #93a1a1
+#set $baseA0 #839496
+#set $baseB0 #657b83
+#set $baseB1 #586e75
+#set $baseB2 #073642
+#set $baseB3 #002b36
+#set $custom #e1cab3
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '$baseA2'
+
+###################
+# solarized (clean) 
+###################
+# clientclass 			border  backgr. text 	indicator
+client.focused 			$green	$green	$baseB3 $blue
+client.focused_inactive		$cyan	$cyan	$baseB2 $violet
+client.unfocused  		$baseA2 $baseA2 $baseB1 $baseA1
+client.urgent 	 		$orange $orange $baseB3 $red
+
+####################
+# solarized (borders) 
+####################
+# clientclass			border  backgr. text 	indicator
+# client.focused    		$baseB0	$green	$baseB3 $blue
+# client.focused_inactive 	$baseB0	$cyan	$baseB2 $violet
+# client.unfocused  		$baseB0 $baseA2 $baseB1 $baseA1
+# client.urgent     		$baseB0 $orange $baseB3 $red
+
+###############################
+# disable cyan? (clean/borders)
+###############################
+#client.focused_inactive 	$custom $custom $baseB2 $violet
+#client.focused_inactive 	$baseB0 $custom $baseB2 $violet
+
 # $i3-theme-bar
 colors {
-    background #073642
-    statusline #eee8d5
-    focused_workspace #cb4b16 #cb4b16 #eee8d5
-    active_workspace #cb4b16 #cb4b16 #eee8d5
-    inactive_workspace #b58900 #b58900 #eee8d5
+ 	# status
+	separator $blue
+ 	background $baseA3
+	statusline $baseA0
+ 	
+ 	###################
+	# solarized (clean) 
+	###################
+ 	# workclass 			border  backgr. text
+ 	focused_workspace		$green  $green  $baseA3
+ 	active_workspace		$cyan   $cyan   $baseA2
+ 	inactive_workspace		$baseA2 $baseA2 $baseB1
+ 	urgent_workspace		$orange $orange $baseB3
+	
+	#####################
+	# solarized (borders)
+	#####################
+	# workclass 			border backgr. text
+	#focused_workspace 		$baseB0 $green  $baseA3
+	#active_workspace 		$baseB0 $cyan   $baseA2
+	#inactive_workspace 		$baseB0 $baseA2 $baseB1
+	#urgent_workspace 		$baseB0 $orange $baseB3
+
+	###############################
+	# disable cyan? (clean/borders)
+	###############################
+	#active_workspace		$custom $custom $baseB2
+	#active_workspace 		$baseB0 $custom $baseB2
 }
+
