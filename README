@@ -175,3 +175,7 @@ in the future.
 - display usage info with j4-make-config --help
 - running j4-make-config without arguments makes j4-make-config
   use the last used options - these must be stored in a rc file
+- put every theme in a separate directory - this would help to
+  = provide variations of themes
+  = enable users to make modifications of themes
+  = provide additional files like licences or README files
