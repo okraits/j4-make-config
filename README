@@ -128,9 +128,13 @@ config.base and the theme file it gets as a commandline argument.
 5. Usage
 ========
 
-Using j4-make-config, you can easily change the window and bar colors.
-Additionally, you can override the window borderstyle and font settings,
-if you specify them in a theme file.
+To create an i3 configuration which includes a certain theme, run:
+
+j4-make-config <theme-name>
+
+To create an i3 configuration without including a theme, run:
+
+j4-make-config none
 
 6. Changelog
 ============

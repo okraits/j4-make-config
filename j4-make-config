@@ -68,11 +68,23 @@ if __name__ == "__main__":
         i3_BASECONFIG = i3_PATH + "/config.base"
         i3_CONFIG = i3_PATH + "/config"
     
-    # wrong number of cli arguments
-    if (len(argv) != 2):
+    # parse cli arguments
+    if (len(argv) == 1):
+        # in the future we'll use the previously used options here
+        print("Nothing to do.")
+        exit(0)
+    elif (len(argv) == 2):
+        if (argv[1] == "-h" or argv[1] == "--help"):
+            printUsageInfo(VERSION)
+            printThemeList()
+            exit(0)
+        else:
+            pass
+    else:
+        # wrong number of cli arguments
         printUsageInfo(VERSION)
         printThemeList()
-        exit(0)
+        exit(1)
     
     # we must not include a theme in the config file
     if argv[1] == "none":
