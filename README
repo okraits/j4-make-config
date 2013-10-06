@@ -33,12 +33,17 @@ GNU General Public License v2:
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 The theme files are either ports of themes from other window managers,
-assembled from i3 configurations found on the net or original themes of
-Oliver Kraitschy. Oliver Kraitschy does not have any copyright for
-themes ported from other window managers or found on the net.
+assembled from i3 configurations found on the net or original themes
+done by various peole. Oliver Kraitschy does not have any copyright for
+themes ported from other window managers, found on the net or done by
+other people.
 
 3. Authorship and feedback, contributions etc.
 ==============================================
+
+There is a git repository available at github:
+
+https://github.com/okraits/j4-make-config
 
 This software was initiated by Oliver Kraitschy (http://okraits.de).
 Please feel free to send him feedback and contributions regarding
@@ -119,8 +124,6 @@ chosen theme file.
 As a last step, you should rename (move in the unix world) your config
 file to config.base, as j4-make-config generates a config file out of
 config.base and the theme file it gets as a commandline argument.
-
-As an example, i have provided my config.base in the tarball.
 
 5. Usage
 ========

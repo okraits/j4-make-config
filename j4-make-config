@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
-# i3 theme switcher by Oliver Kraitschy
-# http://okraits.de
+# i3 config generator/switcher
+# by Oliver Kraitschy
+# http://okraits.de okraits@arcor.de
 
 from os import path, getenv, listdir
 from sys import argv
@@ -35,9 +36,8 @@ def detectConfigDir():
         return False
 
 def printUsageInfo(version):
-    info = """i3 theme switcher
-Version %s
-By Oliver Kraitschy http://okraits.de\n
+    info = """i3 config generator/switcher
+Version %s\n
 Usage:
 ======
 Set a specific theme:
