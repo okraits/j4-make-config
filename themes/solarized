@@ -76,7 +76,7 @@ colors {
  	# status
 	separator $blue
  	background $baseA3
-	statusline $baseA0
+	statusline $baseB2
  	
  	###################
 	# solarized (clean) 
