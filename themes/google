@@ -39,5 +39,4 @@ colors {
     active_workspace 	$darkg $darkg $lightg
     inactive_workspace	$darkg $darkg $lightg
     urgent_workspace 	$yellow $yellow $white
-    urgent_workspace
 }
