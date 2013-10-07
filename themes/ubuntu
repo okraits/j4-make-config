@@ -1,25 +1,33 @@
 # ubuntu theme for i3wm by lasers
 
-# You can uncomment two *urgent* lines to get better urgent visibility.
+# $i3-status
+color_bad = "#DF382C"
+color_degraded = "#efb73e"
+color_good = "#38B44A"
+color_separator = "#AEA79F"
 
 # $i3-theme-window
-# client                border  backgr. text    indica.
-client.focused          #dd4814 #dd4814 #ffffff #902a07
-client.focused_inactive #5e2750 #5e2750 #aea79f #5e2750
-client.unfocused        #5e2750 #5e2750 #aea79f #5e2750 
-client.urgent           #77216f #77216f #ffffff #efb73e
-##client.urgent         #efb73e #efb73e #ffffff #efb73e
+# <clientclass>         <border> <backgr.> <text> <indicator>
+#client.focused          #851F73 #851F73 #ffffff #974C87
+client.focused_inactive #61194A #61194A #ffffff #774060
+client.unfocused        #47172C #47172C #aea79f #603944 
+client.urgent           #efb73e #efb73e #ffffff #efb73e
+client.focused          #F37320 #F37320 #ffffff #F58C46
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '#542937'
 
 # $i3-theme-bar
 colors {
-	background #2c001e
-	separator  #333333
+	#<bar>
+	background #47172C
+	separator  #F37320
 	statusline #aea79f
 
-	# workspace         border  backgr. text
-	focused_workspace   #dd4814 #dd4814 #ffffff
-	active_workspace    #902a07 #902a07 #aea79f
-	inactive_workspace  #902a07 #902a07 #aea79f
-	urgent_workspace    #77216f #77216f #ffffff
-	##urgent_workspace  #efb73e #efb73e #ffffff
+	# <workclass>		<border> <backgr.> <text>
+	#focused_workspace  #851F73 #851F73 #ffffff
+	active_workspace    #61194A #61194A #ffffff
+	inactive_workspace  #47172C #47172C #aea79f
+	urgent_workspace    #efb73e #efb73e #ffffff
+	focused_workspace   #F37320 #F37320 #ffffff
 }

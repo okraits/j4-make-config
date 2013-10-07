@@ -1,21 +1,25 @@
 # debian theme for i3wm by lasers
 
 # $i3-theme-window
-# client                border  backgr. text    indica.
-client.focused          #d70a53 #d70a53 #ffffff #8c0333
-client.focused_inactive #333333 #333333 #888888 #333333
-client.unfocused        #333333 #333333 #888888 #333333
-client.urgent           #eb709b #eb709b #ffffff #eb709b
+# <clientclass>         	<border> <backgr.> <text> <indicator>
+client.focused          	#d70a53 #d70a53 #ffffff #8c0333
+client.focused_inactive		#444444 #444444 #888888 #888888
+client.unfocused 			#222222 #222222 #888888 #666666
+client.urgent           	#eb709b #eb709b #ffffff #eb709b
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '#000000'
 
 # $i3-theme-bar
 colors {
+	# <bar>
 	background #222222
 	separator  #444444
 	statusline #666666
 
-	# workspace         border  backgr. text
+    # <workclass>      <border> <backgr.> <text>
 	focused_workspace   #d70a53 #d70a53 #ffffff
-	active_workspace    #333333 #333333 #888888
+	active_workspace    #222222 #222222 #888888
 	inactive_workspace  #333333 #333333 #888888
 	urgent_workspace    #eb709b #eb709b #ffffff
 }
