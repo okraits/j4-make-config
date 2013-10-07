@@ -63,5 +63,5 @@ colors {
     urgent_workspace 	$darkyellow $darkyellow $white
   	background #222222
 	separator  #444444
-	statusline #666666
+	statusline $darkgrey
 }

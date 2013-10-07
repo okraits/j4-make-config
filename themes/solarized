@@ -7,7 +7,7 @@
 
 # $i3-status
 color_bad = "#DC322F"
-color_degraded = "#B58900"
+color_degraded = "#b58900"
 color_good = "#859900"
 color_separator = "#268BD2"
 
