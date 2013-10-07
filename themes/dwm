@@ -1,18 +1,23 @@
 # dwm theme for i3wm by lasers
 
 # $i3-theme-window
-# client.class          border  backgr. text    indicator
+# <clientclass>         <border> <backgr.> <text> <indicator>
 client.focused          #005577 #005577 #eeeeee #0099bb
 client.focused_inactive #444444 #444444 #eeeeee #666666
 client.unfocused        #222222 #222222 #bbbbbb #222222
 client.urgent           #700000 #700000 #eeeeee #700000
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '#000000'
+
 # $i3-theme-bar
 colors {
+	# <bar>
     background #222222
-    statusline #eeeeee
     separator  #444444
+    statusline #eeeeee
 
-    # bar.class        border  backgr. text
+    # <workclass>      <border> <backgr.> <text>
     focused_workspace  #005577 #005577 #eeeeee
     active_workspace   #444444 #444444 #eeeeee
     inactive_workspace #222222 #222222 #bbbbbb
