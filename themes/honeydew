@@ -1,16 +1,20 @@
 # honeydew theme for i3wm by lasers
 
+# $i3-status
+color_bad = "#D39595"
+color_degraded = "#D3C895"
+color_good = "#89C289"
+
 # $i3-theme-window
 # honeydew colors
-set $red #D39595
-set $green #89C289
-
 set $base1 #F0FFF0
 set $base2 #CCD9CC
 set $base3 #A8B3A8
 set $base4 #848C84
 set $base5 #606660
 set $base6 #3C403C
+set $green #89C289
+set $red #D39595
 
 ###############
 # [0] 1 2 3 4 #
@@ -22,7 +26,7 @@ exec_always --no-startup-id xsetroot -solid '$base3'
 
 # honeydew <clientclass> <border> <bg> <text> <indicator>
 client.focused          $base3 $base3 $base1 $red
-client.focused_inactive $base4 $base4 $base2 $green
+client.focused_inactive $base4 $base4 $base1 $green
 client.unfocused        $base5 $base5 $base2 $green
 client.urgent           $red $red $base1 $red
 
@@ -30,7 +34,7 @@ client.urgent           $red $red $base1 $red
 colors {
     # honeydew <workclass> <border> <bg> <text>
     focused_workspace  $base3 $base3 $base1
-    active_workspace   $base4 $base4 $base2
+    active_workspace   $base4 $base4 $base1
     inactive_workspace $base5 $base5 $base2
     urgent_workspace   $red $red $base1
     background $base6
