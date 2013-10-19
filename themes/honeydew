@@ -2,15 +2,6 @@
 
 # $i3-theme-window
 # honeydew colors
-set $base1 #F0FFF0
-set $base2 #D8E6D8
-set $base3 #C0CCC0
-set $base4 #A8B3A8
-set $base5 #909990
-set $base6 #788078
-set $base7 #606660
-set $base8 #303330
-set $base9 #181a18
 set $red #D39595
 set $green #89C289
 
@@ -31,18 +22,18 @@ exec_always --no-startup-id xsetroot -solid '$base3'
 
 # honeydew <clientclass> <border> <bg> <text> <indicator>
 client.focused          $base3 $base3 $base1 $red
-client.focused_inactive $base6 $base6 $base2 $green
-client.unfocused        $base4 $base4 $base2 $green
+client.focused_inactive $base4 $base4 $base2 $green
+client.unfocused        $base5 $base5 $base2 $green
 client.urgent           $red $red $base1 $red
 
 # $i3-theme-bar
 colors {
     # honeydew <workclass> <border> <bg> <text>
     focused_workspace  $base3 $base3 $base1
-    active_workspace   $base6 $base6 $base2
-    inactive_workspace $base4 $base4 $base2
+    active_workspace   $base4 $base4 $base2
+    inactive_workspace $base5 $base5 $base2
     urgent_workspace   $red $red $base1
-    background $base7
+    background $base6
     separator $base3
     statusline $base2
 }
