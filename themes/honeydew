@@ -16,11 +16,6 @@ set $base6 #3C403C
 set $green #89C289
 set $red #D39595
 
-###############
-# [0] 1 2 3 4 #
-# [9] 5 6 7 8 #
-###############
-
 # $i3-background
 exec_always --no-startup-id xsetroot -solid '$base3'
 
