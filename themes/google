@@ -6,7 +6,6 @@
 color_bad = "#D8442E"
 color_degraded = "#FFC609"
 color_good = "#009C58"
-color_separator = "#2D76F6"
 
 # $i3-theme-window
 # google
@@ -30,10 +29,10 @@ client.urgent 			$yellow $yellow $white $red
 # $i3-theme-bar
 colors {
     # <bar>
-    background $darkg 
+    background $darkg
     separator $white
     statusline $white
-    
+
     # <workclass>      <border> <bg> <text>
     focused_workspace 	$darkg $darkg $white
     active_workspace 	$darkg $darkg $lightg

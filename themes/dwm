@@ -1,18 +1,24 @@
 # dwm theme for i3wm by lasers
 
 # $i3-theme-window
-# <clientclass>         <border> <backgr.> <text> <indicator>
+# dwm <clientclass> <border> <backgr.> <text> <indicator>
 client.focused          #005577 #005577 #eeeeee #0099bb
 client.focused_inactive #444444 #444444 #eeeeee #666666
 client.unfocused        #222222 #222222 #bbbbbb #222222
 client.urgent           #700000 #700000 #eeeeee #700000
 
+# softdwm <clientclass> <border> <backgr.> <text> <indicator>
+client.focused          #005577 #005577 #eeeeee #006891
+client.focused_inactive #444444 #444444 #eeeeee #5E5E5E
+client.unfocused        #222222 #222222 #bbbbbb #3B3B3B
+client.urgent           #700000 #700000 #eieeeee #8A0000
+
 # $i3-background
-exec_always --no-startup-id xsetroot -solid '#000000'
+exec_always --no-startup-id xsetroot -solid '#005577'
 
 # $i3-theme-bar
 colors {
-	# <bar>
+    # <bar>
     background #222222
     separator  #444444
     statusline #eeeeee

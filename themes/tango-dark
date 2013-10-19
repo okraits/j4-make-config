@@ -1,12 +1,12 @@
-# tango-jungle theme for i3wm by lasers
+# tango theme for i3wm by lasers
 
 # I wrote this theme to make i3 match my tango colorscheme terminals.
 # Colors obtained from http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines
 
 # $i3-status
-color_bad = "#A40000"
-color_degraded = "#8F5902"
-color_good = "#4E9A06"
+color_bad = "#CC0000"
+color_degraded = "#EDD400"
+color_good = "#73D216"
 
 # $i3-theme-window
 # tango dark
@@ -28,18 +28,18 @@ set $lightyellow 	#FCE94F
 set $lightorange	#FCAF3E
 
 # tango normal
-set $blue 			#3465A4
-set $brown			#C17D11
-set $green 			#73D216
+set $blue 		#3465A4
+set $brown		#C17D11
+set $green 		#73D216
 set $magenta 		#75507B
-set $red 			#CC0000
+set $red 		#CC0000
 set $yellow 		#EDD400
-set $orange			#F57900
+set $orange		#F57900
 
 # tango mono
-set $black 			#555753
-set $grey			#BABDB6
-set $white 			#EEEEEC
+set $black 		#555753
+set $grey		#BABDB6
+set $white 		#EEEEEC
 set $darkblack 		#2E3436
 set $darkgrey 		#888A85
 set $darkwhite 		#D3D7CF
@@ -47,20 +47,20 @@ set $darkwhite 		#D3D7CF
 # $i3-background
 exec_always --no-startup-id xsetroot -solid '#2E3436'
 
-# tango jungle <clientclass> <border> <backg> <text> <indicator>
-client.focused          $darkgreen $darkgreen $white $lightgreen
+# tango <clientclass> <border> <backg> <text> <indicator>
+client.focused          $darkblue $darkblue $white $blue
 client.focused_inactive $black $black $grey $darkgrey
 client.unfocused        $darkblack $darkblack $grey $darkgrey
-client.urgent           $darkyellow $darkyellow $white $lightyellow
+client.urgent           $red $red $white $lightred
 
 # $i3-theme-bar
 colors {
-    # tango jungle <workclass> <border> <backg> <text>
-    focused_workspace 	$darkgreen $darkgreen $white
-    active_workspace 	$darkbrown $darkbrown $grey
+    # tango <workclass> <border> <backg> <text>
+    focused_workspace 	$darkblue $darkblue $white
+    active_workspace 	$darkgrey $darkgrey $grey
     inactive_workspace	$darkblack $darkblack $grey
-    urgent_workspace 	$darkyellow $darkyellow $white
-  	background #222222
-	separator  #444444
-	statusline $darkgrey
+    urgent_workspace 	$darkred $darkred $white
+    background #222222
+    separator  #444444
+    statusline $darkgrey
 }
