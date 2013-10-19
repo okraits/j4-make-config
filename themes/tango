@@ -7,7 +7,6 @@
 color_bad = "#CC0000"
 color_degraded = "#EDD400"
 color_good = "#73D216"
-color_separator = "#D3D7CF"
 
 # $i3-theme-window
 # tango dark
@@ -29,18 +28,18 @@ set $lightyellow 	#FCE94F
 set $lightorange	#FCAF3E
 
 # tango normal
-set $blue 			#3465A4
-set $brown			#C17D11
-set $green 			#73D216
+set $blue 		#3465A4
+set $brown		#C17D11
+set $green 		#73D216
 set $magenta 		#75507B
-set $red 			#CC0000
+set $red 		#CC0000
 set $yellow 		#EDD400
-set $orange			#F57900
+set $orange		#F57900
 
 # tango mono
-set $black 			#555753
-set $grey			#BABDB6
-set $white 			#EEEEEC
+set $black 		#555753
+set $grey		#BABDB6
+set $white 		#EEEEEC
 set $darkblack 		#2E3436
 set $darkgrey 		#888A85
 set $darkwhite 		#D3D7CF
@@ -57,8 +56,8 @@ client.urgent           $red $red $white $lightred
 # $i3-theme-bar
 colors {
     # tango <workclass> <border> <backg> <text>
-    focused_workspace 	$darkblue $darkblue $white
-    active_workspace 	$darkgrey $darkgrey $grey
+    focused_workspace 	$blue $blue $white
+    active_workspace 	$black $black $grey
     inactive_workspace	$darkblack $darkblack $grey
     urgent_workspace 	$red $red $white
     background #222222

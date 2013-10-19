@@ -1,10 +1,12 @@
 # debian theme for i3wm by lasers
 
+# $i3-status
+
 # $i3-theme-window
 # <clientclass>         	<border> <backgr.> <text> <indicator>
-client.focused          	#d70a53 #d70a53 #ffffff #8c0333
+client.focused          	#d70a53 #d70a53 #ffffff #eb709b
 client.focused_inactive		#444444 #444444 #888888 #888888
-client.unfocused 			#222222 #222222 #888888 #666666
+client.unfocused 		#222222 #222222 #888888 #666666
 client.urgent           	#eb709b #eb709b #ffffff #eb709b
 
 # $i3-background

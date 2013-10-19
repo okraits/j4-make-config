@@ -4,13 +4,12 @@
 color_bad = "#DF382C"
 color_degraded = "#efb73e"
 color_good = "#38B44A"
-color_separator = "#AEA79F"
 
 # $i3-theme-window
 # <clientclass>         <border> <backgr.> <text> <indicator>
 #client.focused          #851F73 #851F73 #ffffff #974C87
 client.focused_inactive #61194A #61194A #ffffff #774060
-client.unfocused        #47172C #47172C #aea79f #603944 
+client.unfocused        #47172C #47172C #aea79f #603944
 client.urgent           #efb73e #efb73e #ffffff #efb73e
 client.focused          #F37320 #F37320 #ffffff #F58C46
 

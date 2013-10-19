@@ -9,7 +9,6 @@
 color_bad = "#DC322F"
 color_degraded = "#b58900"
 color_good = "#859900"
-color_separator = "#268BD2"
 
 # $i3-theme-window
 # solarized accents
@@ -34,21 +33,21 @@ set $baseB3 #fdf6e3
 set $custom #1c5766
 
 # solarized light
-#set $baseA3 #fdf6e3
-#set $baseA2 #eee8d5
-#set $baseA1 #93a1a1
-#set $baseA0 #839496
-#set $baseB0 #657b83
-#set $baseB1 #586e75
-#set $baseB2 #073642
-#set $baseB3 #002b36
-#set $custom #e1cab3
+set $baseA3 #fdf6e3
+set $baseA2 #eee8d5
+set $baseA1 #93a1a1
+set $baseA0 #839496
+set $baseB0 #657b83
+set $baseB1 #586e75
+set $baseB2 #073642
+set $baseB3 #002b36
+set $custom #e1cab3
 
 # $i3-background
 exec_always --no-startup-id xsetroot -solid '$baseA2'
 
 ###################
-# solarized (clean) 
+# solarized (clean)
 ###################
 # clientclass 			border  backgr. text 	indicator
 client.focused 			$green	$green	$baseB3 $blue
@@ -57,7 +56,7 @@ client.unfocused  		$baseA2 $baseA2 $baseB1 $baseA1
 client.urgent 	 		$orange $orange $baseB3 $red
 
 ####################
-# solarized (borders) 
+# solarized (borders)
 ####################
 # clientclass			border  backgr. text 	indicator
 # client.focused    		$baseB0	$green	$baseB3 $blue
@@ -77,16 +76,16 @@ colors {
 	separator $blue
  	background $baseA3
 	statusline $baseB2
- 	
+
  	###################
-	# solarized (clean) 
+	# solarized (clean)
 	###################
  	# workclass 			border  backgr. text
  	focused_workspace		$green  $green  $baseA3
  	active_workspace		$cyan   $cyan   $baseA2
  	inactive_workspace		$baseA2 $baseA2 $baseB1
  	urgent_workspace		$orange $orange $baseB3
-	
+
 	#####################
 	# solarized (borders)
 	#####################
@@ -102,4 +101,3 @@ colors {
 	#active_workspace		$custom $custom $baseB2
 	#active_workspace 		$baseB0 $custom $baseB2
 }
-
