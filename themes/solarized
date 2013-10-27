@@ -53,16 +53,18 @@ exec_always --no-startup-id xsetroot -solid '$baseA2'
 client.focused 			$green	$green	$baseB3 $blue
 client.focused_inactive		$cyan	$cyan	$baseB2 $violet
 client.unfocused  		$baseA2 $baseA2 $baseB1 $baseA1
-client.urgent 	 		$orange $orange $baseB3 $red
+#client.urgent 	 		$orange $orange $baseB3 $red
+client.urgent 	 		$yellow $yellow $baseB3 $orange
 
 ####################
 # solarized (borders)
 ####################
 # clientclass			border  backgr. text 	indicator
-# client.focused    		$baseB0	$green	$baseB3 $blue
-# client.focused_inactive 	$baseB0	$cyan	$baseB2 $violet
-# client.unfocused  		$baseB0 $baseA2 $baseB1 $baseA1
-# client.urgent     		$baseB0 $orange $baseB3 $red
+client.focused    		$baseB0	$green	$baseB3 $blue
+client.focused_inactive 	$baseB0	$cyan	$baseB2 $violet
+client.unfocused  		$baseB0 $baseA2 $baseB1 $baseA1
+#client.urgent     		$baseB0 $orange $baseB3 $red
+client.urgent 	 		$baseB0 $yellow $baseB3 $orange
 
 ###############################
 # disable cyan? (clean/borders)
@@ -81,19 +83,21 @@ colors {
 	# solarized (clean)
 	###################
  	# workclass 			border  backgr. text
- 	focused_workspace		$green  $green  $baseA3
- 	active_workspace		$cyan   $cyan   $baseA2
- 	inactive_workspace		$baseA2 $baseA2 $baseB1
- 	urgent_workspace		$orange $orange $baseB3
+ 	#focused_workspace		$green  $green  $baseA3
+ 	#active_workspace		$cyan   $cyan   $baseA2
+ 	#inactive_workspace		$baseA2 $baseA2 $baseB1
+ 	#urgent_workspace		$orange $orange $baseB3
+ 	#urgent_workspace		$yellow $yellow $baseB3
 
 	#####################
 	# solarized (borders)
 	#####################
 	# workclass 			border backgr. text
-	#focused_workspace 		$baseB0 $green  $baseA3
-	#active_workspace 		$baseB0 $cyan   $baseA2
-	#inactive_workspace 		$baseB0 $baseA2 $baseB1
+	focused_workspace 		$baseB0 $green  $baseA3
+	active_workspace 		$baseB0 $cyan   $baseA2
+	inactive_workspace 		$baseB0 $baseA2 $baseB1
 	#urgent_workspace 		$baseB0 $orange $baseB3
+	urgent_workspace 		$baseB0 $orange $baseB3
 
 	###############################
 	# disable cyan? (clean/borders)

@@ -1,0 +1,81 @@
+# honeydew themes for i3wm by lasers
+
+# $i3-theme-window
+
+# honeydew
+set $base1 #F0FFF0
+set $base2 #E0EEE0
+set $base3 #C1CDC1
+set $base4 #838B83
+set $base5 #A64E4E
+
+# honeydew special
+set $base1 #F0FFF0
+set $base2 #E0EEE0
+set $base3 #C1CDC1
+set $base4 #838B83
+set $base5 #A64E4E
+
+# skyblue
+#set $base1 #87CEFF
+#set $base2 #7EC0EE
+#set $base3 #6CA6CD
+#set $base4 #4A708B
+#set $base5 #A64E4E
+
+# lightsteelblue
+#set $base1 #CAE1FF
+#set $base2 #BCD2EE
+#set $base3 #A2B5CD
+#set $base4 #6E7B8B
+#set $base5 #A64E4E
+
+# azura
+#set $base1 #F0FFFF
+#set $base2 #E0EEEE
+#set $base3 #C1CDCD
+#set $base4 #838B8B
+#set $base5 #A64E4E
+
+# mistyrose
+#set $base1 #FFE4E1
+#set $base2 #EED5D2
+#set $base3 #CDB7B5
+#set $base4 #8B7D7B
+#set $base5 #A64E4E
+
+# snow
+#set $base1 #FFFAFA
+#set $base2 #EEE9E9
+#set $base3 #CDC9C9
+#set $base4 #8B8989
+#set $base5 #A64E4E
+
+# solid background
+exec_always --no-startup-id xsetroot -solid '$base3'
+
+# <clientclas> 			<border> <bg> <text> <indicator>
+client.focused          $base1 $base1 $base4 $base5
+client.focused_inactive $base2 $base2 $base4 $base4
+client.unfocused        $base3 $base3 $base2 $base3
+client.urgent           $base5 $base5 $base1 $base3
+
+# $i3-theme-bar
+colors {
+    # <bar>
+    separator $base3
+    background $base4
+    statusline $base2
+    
+    # <workclass>      <border> <bg> <text>
+    focused_workspace  $base1 $base1 $base4
+    active_workspace   $base3 $base3 $base1
+    inactive_workspace $base3 $base3 $base1
+    urgent_workspace   $base5 $base5 $base1
+
+    # <alternative>     <border> <bg> <text>
+    #focused_workspace  $base1 $base1 $base4
+    #active_workspace 	$base4 $base4 $base1
+    #inactive_workspace $base4 $base4 $base1
+    #urgent_workspace   $base5 $base5 $base1
+}

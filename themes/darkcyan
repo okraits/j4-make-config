@@ -1,0 +1,39 @@
+# darkcyan theme for i3wm by lasers
+
+# $i3-status
+color_bad = "#EE6F6F"
+color_good = "#59BE59"
+color_degraded = "#EED86F"
+
+# $i3-theme-window
+# darkcyan accents
+set $red #EE6F6F
+set $white #E6E6E6
+set $white2 #AAAAAA
+set $darkgray #3C3C3C
+set $gray #505050
+set $cyan #438F8F
+set $lightcyan #68A5A5
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '#2d2d2d'
+
+# <clientclass>         <border> <bg> <text> <indicator>
+client.focused          $cyan $cyan $white $lightcyan
+client.focused_inactive $gray $gray $white $cyan
+client.unfocused        $darkgray $darkgray $white2 $cyan
+client.urgent           $red $red $white $red
+
+# $i3-theme-bar
+colors {
+    # <bar>
+    background #1E1E1E
+    separator #1E1E1E
+    statusline #C0C0C0
+
+    # <workclass>       <border> <bg> <text>
+    focused_workspace   $gray $gray $white
+    active_workspace    #434343 #434343 $white2
+    inactive_workspace  $darkgray $darkgray $white2
+    urgent_workspace    $red $red $white
+}

@@ -1,32 +1,30 @@
 # ubuntu theme for i3wm by lasers
 
 # $i3-status
-color_bad = "#DF382C"
+color_bad = "#df382c"
 color_degraded = "#efb73e"
-color_good = "#38B44A"
+color_good = "#38b44a"
 
 # $i3-theme-window
 # <clientclass>         <border> <backgr.> <text> <indicator>
-#client.focused          #851F73 #851F73 #ffffff #974C87
-client.focused_inactive #61194A #61194A #ffffff #774060
-client.unfocused        #47172C #47172C #aea79f #603944
-client.urgent           #efb73e #efb73e #ffffff #efb73e
-client.focused          #F37320 #F37320 #ffffff #F58C46
+client.focused          #f47f31 #f37320 #ffffff #f58c46
+client.focused_inactive #6c2e55 #61194a #ffffff #774060
+client.unfocused        #542937 #47172c #aea79f #603944
+client.urgent           #f0be50 #efb73e #ffffff #efb73e
 
 # $i3-background
 exec_always --no-startup-id xsetroot -solid '#542937'
 
 # $i3-theme-bar
 colors {
-	#<bar>
-	background #47172C
-	separator  #F37320
+	# <bar>
+	background #47172c
+	separator  #f37320
 	statusline #aea79f
 
-	# <workclass>		<border> <backgr.> <text>
-	#focused_workspace  #851F73 #851F73 #ffffff
-	active_workspace    #61194A #61194A #ffffff
-	inactive_workspace  #47172C #47172C #aea79f
-	urgent_workspace    #efb73e #efb73e #ffffff
-	focused_workspace   #F37320 #F37320 #ffffff
+	# <workclass>	    <border> <backgr.> <text>
+	focused_workspace   #f47f31 #f37320 #ffffff
+	active_workspace    #6c2e55 #61194a #ffffff
+	inactive_workspace  #542937 #47172c #aea79f
+	urgent_workspace    #f0be50 #efb73e #ffffff
 }
