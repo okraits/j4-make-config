@@ -1,41 +1,39 @@
 # google theme for i3wm by lasers
 
-# Colors obtained from https://en.wikipedia.org/wiki/File:Logo_2013_Google.png
-
 # i3-status
-color_bad = "#D8442E"
-color_degraded = "#FFC609"
-color_good = "#009C58"
+color_bad = "#d8442e"
+color_degraded = "#ffc609"
+color_good = "#009c58"
 
 # $i3-theme-window
-# google
-set $blue #2D76F6
-set $darkg #2D2D2D
-set $green #009C58
+# google accents
+set $blue #2d76f6
+set $darkg #2d2d2d
+set $green #009c58
 set $lightg #bbbbbb
-set $red #D8442E
+set $red #d8442e
 set $white #ffffff
-set $yellow #FFC609
+set $yellow #ffc609
 
 # $i3-background
-exec_always --no-startup-id xsetroot -solid '#2b2b2b'
+exec_always --no-startup-id xsetroot -solid '#2d2d2d'
 
-# <clientclass>			<border> <bg> <text> <indicator>
-client.focused          $blue $blue $white $red
-client.focused_inactive $lightg $lightg $white $green
-client.unfocused        $darkg $darkg $white $lightg
-client.urgent 			$yellow $yellow $white $red
+# <clientclass>		<border> <bg> <text> <indicator>
+client.focused          #4183F6 $blue $white $red
+client.focused_inactive #C1C1C1 $lightg $white $green
+client.unfocused        #414141 $darkg $white $lightg
+client.urgent 		#FFCB21 $yellow $white $red
 
 # $i3-theme-bar
 colors {
     # <bar>
     background $darkg
-    separator $white
+    separator $lightg
     statusline $white
 
     # <workclass>      <border> <bg> <text>
-    focused_workspace 	$darkg $darkg $white
-    active_workspace 	$darkg $darkg $lightg
-    inactive_workspace	$darkg $darkg $lightg
-    urgent_workspace 	$yellow $yellow $white
+    focused_workspace 	#4183F6 $blue $white
+    active_workspace 	#414141 $darkg $white
+    inactive_workspace	#414141 $darkg $lightg
+    urgent_workspace 	#FFCB21 $yellow $white
 }

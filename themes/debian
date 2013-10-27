@@ -1,27 +1,36 @@
 # debian theme for i3wm by lasers
 
 # $i3-status
+# debian-dark
+color_bad = "#8C0333"
+color_degraded = "#9F7604"
+color_good = "#4A9003"
+
+# debian-bright
+color_bad = "#D70A53"
+color_good = "#75DD0A"
+color_degraded = "#F5B70B"
 
 # $i3-theme-window
-# <clientclass>         	<border> <backgr.> <text> <indicator>
-client.focused          	#d70a53 #d70a53 #ffffff #eb709b
-client.focused_inactive		#444444 #444444 #888888 #888888
-client.unfocused 		#222222 #222222 #888888 #666666
-client.urgent           	#eb709b #eb709b #ffffff #eb709b
+# <clientclass>		<border> <bg> <text> <indicator>
+client.focused          #da2263 #d70a53 #ffffff #eb709b
+client.focused_inactive	#565656 #444444 #ffffff #666666
+client.unfocused 	#373737 #222222 #888888 #444444
+client.urgent           #ec7ea4 #eb709b #ffffff #eb709b
 
 # $i3-background
 exec_always --no-startup-id xsetroot -solid '#000000'
 
 # $i3-theme-bar
 colors {
-	# <bar>
-	background #222222
-	separator  #444444
-	statusline #666666
+    # <bar>
+    background #222222
+    separator  #444444
+    statusline #666666
 
-    # <workclass>      <border> <backgr.> <text>
-	focused_workspace   #d70a53 #d70a53 #ffffff
-	active_workspace    #222222 #222222 #888888
-	inactive_workspace  #333333 #333333 #888888
-	urgent_workspace    #eb709b #eb709b #ffffff
+    # <workclass>       <border> <bg> <text>
+    focused_workspace   #da2263 #d70a53 #ffffff
+    active_workspace    #565656 #444444 #ffffff
+    inactive_workspace  #373737 #222222 #888888
+    urgent_workspace    #ec7ea4 #eb709b #ffffff
 }

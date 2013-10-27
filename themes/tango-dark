@@ -48,18 +48,18 @@ set $darkwhite 		#D3D7CF
 exec_always --no-startup-id xsetroot -solid '#2E3436'
 
 # tango <clientclass> <border> <backg> <text> <indicator>
-client.focused          $darkblue $darkblue $white $blue
-client.focused_inactive $black $black $grey $darkgrey
-client.unfocused        $darkblack $darkblack $grey $darkgrey
-client.urgent           $red $red $white $lightred
+client.focused          $blue $darkblue $white $blue
+client.focused_inactive $darkgrey $black $grey $darkgrey
+client.unfocused        $black $darkblack $grey $darkgrey
+client.urgent           $lightred $red $white $lightred
 
 # $i3-theme-bar
 colors {
     # tango <workclass> <border> <backg> <text>
-    focused_workspace 	$darkblue $darkblue $white
-    active_workspace 	$darkgrey $darkgrey $grey
-    inactive_workspace	$darkblack $darkblack $grey
-    urgent_workspace 	$darkred $darkred $white
+    focused_workspace 	$blue $darkblue $white
+    active_workspace 	$grey $darkgrey $grey
+    inactive_workspace	$black $darkblack $grey
+    urgent_workspace 	$red $darkred $white
     background #222222
     separator  #444444
     statusline $darkgrey
