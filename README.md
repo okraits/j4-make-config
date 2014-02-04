@@ -150,6 +150,10 @@ To create an i3 configuration without including a theme, run:
 
     j4-make-config none
 
+To let j4-make-config restart i3 after creating an i3 configuration, run:
+
+	j4-make-config -r <theme-name>|none
+
 ### 6. Screenshots
 
 There are screenshots of some, but not all themes available at:

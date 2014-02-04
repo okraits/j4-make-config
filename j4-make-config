@@ -4,10 +4,8 @@
 # by Oliver Kraitschy
 # http://okraits.de okraits@arcor.de
 
-from os import path, getenv, listdir
+from os import path, getenv, listdir, system
 from sys import argv
-
-VERSION = "0.5"
 
 # global variables
 i3_PATH = ""
@@ -15,6 +13,8 @@ THEME_PATH = ""
 i3_BASECONFIG = ""
 i3_CONFIG = ""
 noTheme = False
+restart_arg = 0
+theme_arg = 0
 windowActive = False
 barActive = False
 windowText = ""
@@ -35,15 +35,16 @@ def detectConfigDir():
 	else:
 		return False
 
-def printUsageInfo(version):
-	info = """i3 config generator/switcher
-Version %s\n
+def printUsageInfo():
+	info = """i3 config generator/switcher\n
 Usage:
 ======
 Set a specific theme:
 \tj4-make-config <theme-name>
 Create config file without including a theme:
-\tj4-make-config none""" % (version)
+\tj4-make-config none
+Restart i3 after creating the config file:
+\tj4-make-config -r <theme-name>|none"""
 	print(info)
 
 def printThemeList():
@@ -75,14 +76,26 @@ if __name__ == "__main__":
 		exit(0)
 	elif (len(argv) == 2):
 		if (argv[1] == "-h" or argv[1] == "--help"):
-			printUsageInfo(VERSION)
+			printUsageInfo()
 			printThemeList()
 			exit(0)
 		else:
-			pass
+			theme_arg = 1
+	elif (len(argv) == 3):
+		if argv[1] == "-r":
+			restart_arg = 1
+			theme_arg = 2
+		elif argv[2] == "-r":
+			restart_arg = 2
+			theme_arg = 1
+		else:
+			# wrong number of cli arguments
+			printUsageInfo()
+			printThemeList()
+			exit(1)
 	else:
 		# wrong number of cli arguments
-		printUsageInfo(VERSION)
+		printUsageInfo()
 		printThemeList()
 		exit(1)
 	
@@ -93,7 +106,7 @@ if __name__ == "__main__":
 	if not noTheme:
 		# try to open given filename
 		try:
-			themefile = open(THEME_PATH + "/" + argv[1], "r")
+			themefile = open(THEME_PATH + "/" + argv[theme_arg], "r")
 		except IOError:
 			print("Error: given theme does not exist.")
 			printThemeList()
@@ -142,5 +155,8 @@ if __name__ == "__main__":
 	basefile.close()
 	configfile.flush()
 	configfile.close()
+
+	if restart_arg > 0:
+		system("i3-msg restart")
 	
 	exit(0)
