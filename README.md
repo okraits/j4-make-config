@@ -7,7 +7,7 @@
 3. Authorship, feedback, questions and contributions
 4. Installation
 5. Usage
-6. Changelog
+6. Screenshots 
 7. Todo list
 
 ### 1. Overview
@@ -23,7 +23,7 @@ e.g. adding a keybinding for dmenu colored to match the theme,
 executing an external program which sets the root window background, etc.  
 
 There's a bunch of theme files which are distributed together with
-the j4-make-config script to give the user a variety of configurations to
+the j4-make-config script to give the user a variety of themes to
 choose from.
 
 ### 2. License
@@ -150,20 +150,11 @@ To create an i3 configuration without including a theme, run:
 
     j4-make-config none
 
-### 6. Changelog
+### 6. Screenshots
 
-#### v0.4: 18-09-2013:
+There are screenshots of some, but not all themes available at:
 
-- use "# $i3-theme-window" and "# $i3-theme-bar" as markers, both in the
-  theme files and in config.base
-- "i3-theme none" generates a config file without including a theme
-- i3-theme looks for the i3 configuration in $HOME/.i3,
-  $XDG_CONFIG_HOME/i3 and $HOME/.config/i3
-- added debian and ubuntu themes (thanks lasers!)
-
-#### v0.3: 17-09-2013:
-
-- First public release
+[http://www.okraits.de/index.php?section=projects&page=j4-make-config](http://www.okraits.de/index.php?section=projects&page=j4-make-config)
 
 ### 7. Todo list
 
