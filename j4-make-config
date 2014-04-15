@@ -8,8 +8,9 @@ from os import path, getenv, listdir, system
 from sys import argv
 
 # global variables
-i3_PATH = ""
+SYSTEM_THEME_PATH = "/usr/share/j4-make-config/themes"
 THEME_PATH = ""
+i3_PATH = ""
 i3_BASECONFIG = ""
 i3_CONFIG = ""
 noTheme = False
@@ -48,15 +49,9 @@ Restart i3 after creating the config file:
 	print(info)
 
 def printThemeList():
-	try:
-		themes = listdir(THEME_PATH)
-	except (IOError, OSError):
-		print("\nError: No themes found.")
-		exit(1)
-	themes.sort()
 	print("\nAvailable themes:")
 	print("=================")
-	print("\n".join(themes))
+	print("\n".join(sorted(themes.keys())))
 
 if __name__ == "__main__":
 	# detect i3 configuration directory
@@ -68,6 +63,16 @@ if __name__ == "__main__":
 		THEME_PATH = i3_PATH + "/themes"
 		i3_BASECONFIG = i3_PATH + "/config.base"
 		i3_CONFIG = i3_PATH + "/config"
+		# fill themes dictionary with names and paths
+		themes = {}
+		try:
+			for theme in listdir(SYSTEM_THEME_PATH):
+				themes[theme] = SYSTEM_THEME_PATH + "/" + theme
+			for theme in listdir(THEME_PATH):
+				themes[theme] = THEME_PATH + "/" + theme
+		except (IOError, OSError):
+			print("Error: No themes found.")
+			exit(1)
 	
 	# parse cli arguments
 	if (len(argv) == 1):
@@ -106,8 +111,8 @@ if __name__ == "__main__":
 	if not noTheme:
 		# try to open given filename
 		try:
-			themefile = open(THEME_PATH + "/" + argv[theme_arg], "r")
-		except IOError:
+			themefile = open(themes[argv[theme_arg]], "r")
+		except (KeyError, IOError):
 			print("Error: given theme does not exist.")
 			printThemeList()
 			exit(1)
