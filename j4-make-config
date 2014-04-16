@@ -8,7 +8,7 @@ from os import path, getenv, listdir, system
 from sys import argv
 
 # global variables
-SYSTEM_THEME_PATH = "/usr/share/j4-make-config/themes"
+SYSTEM_THEME_PATH = "/usr/share/j4-make-config-git/themes"
 THEME_PATH = ""
 i3_PATH = ""
 i3_BASECONFIG = ""
