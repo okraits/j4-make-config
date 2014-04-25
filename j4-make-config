@@ -66,10 +66,12 @@ if __name__ == "__main__":
 		# fill themes dictionary with names and paths
 		themes = {}
 		try:
-			for theme in listdir(SYSTEM_THEME_PATH):
-				themes[theme] = SYSTEM_THEME_PATH + "/" + theme
-			for theme in listdir(THEME_PATH):
-				themes[theme] = THEME_PATH + "/" + theme
+			if path.exists(SYSTEM_THEME_PATH):
+				for theme in listdir(SYSTEM_THEME_PATH):
+					themes[theme] = SYSTEM_THEME_PATH + "/" + theme
+			if path.exists(THEME_PATH):
+				for theme in listdir(THEME_PATH):
+					themes[theme] = THEME_PATH + "/" + theme
 		except (IOError, OSError):
 			print("Error: No themes found.")
 			exit(1)
