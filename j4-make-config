@@ -23,14 +23,14 @@ barText = ""
 
 def detectConfigDir():
 	global i3_PATH
-	if path.exists(getenv("HOME") + "/.i3/config"):
+	if path.exists(getenv("HOME") + "/.i3/config.base"):
 		i3_PATH = getenv("HOME") + "/.i3"
 		return True
 	if getenv("XDG_CONFIG_HOME") is not None:
-		if path.exists(getenv("XDG_CONFIG_HOME") + "/i3/config"):
+		if path.exists(getenv("XDG_CONFIG_HOME") + "/i3/config.base"):
 			i3_PATH = getenv("XDG_CONFIG_HOME") + "/i3"
 			return True
-	if path.exists(getenv("HOME") + "/.config/i3/config"):
+	if path.exists(getenv("HOME") + "/.config/i3/config.base"):
 		i3_PATH = getenv("HOME") + "/.config/i3"
 		return True
 	else:
@@ -56,7 +56,7 @@ def printThemeList():
 if __name__ == "__main__":
 	# detect i3 configuration directory
 	if not detectConfigDir():
-		print("Error: i3 config file could not be found.")
+		print("Error: i3 base config file could not be found.")
 		exit(1)
 	else:
 		# set paths
@@ -138,14 +138,14 @@ if __name__ == "__main__":
 	try:
 		basefile = open(i3_BASECONFIG, "r")
 	except IOError:
-		print("Error: i3 base config file does not exist.")
+		print("Error: i3 base config file could not be opened.")
 		exit(1)
 	
 	# try to open i3 config file
 	try:
 		configfile = open(i3_CONFIG, "w")
 	except IOError:
-		print("Error: i3 config file does not exist.")
+		print("Error: i3 config file could not be created.")
 		exit(1)
 	
 	# read base config file, write content to config file
