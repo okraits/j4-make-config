@@ -8,16 +8,21 @@ from os import path, getenv, listdir, system
 from sys import argv
 
 # global variables
+
+# paths
 SYSTEM_THEME_PATH = "/usr/share/j4-make-config-git/themes"
 THEME_PATH = ""
 i3_PATH = ""
 i3_BASECONFIG = ""
 i3_CONFIG = ""
+# cli arguments
+theme_name = ""
+# flags
 noTheme = False
-restart_arg = 0
-theme_arg = 0
+restart = False
 windowActive = False
 barActive = False
+# data variables
 windowText = ""
 barText = ""
 
@@ -87,14 +92,14 @@ if __name__ == "__main__":
 			printThemeList()
 			exit(0)
 		else:
-			theme_arg = 1
+			theme_name = argv[1]
 	elif (len(argv) == 3):
 		if argv[1] == "-r":
-			restart_arg = 1
-			theme_arg = 2
+			restart = True
+			theme_name = argv[2]
 		elif argv[2] == "-r":
-			restart_arg = 2
-			theme_arg = 1
+			restart = True
+			theme_name = argv[1]
 		else:
 			# wrong number of cli arguments
 			printUsageInfo()
@@ -107,13 +112,13 @@ if __name__ == "__main__":
 		exit(1)
 	
 	# we must not include a theme in the config file
-	if argv[1] == "none":
+	if theme_name == "none":
 		noTheme = True
 	
 	if not noTheme:
 		# try to open given filename
 		try:
-			themefile = open(themes[argv[theme_arg]], "r")
+			themefile = open(themes[theme_name], "r")
 		except (KeyError, IOError):
 			print("Error: given theme does not exist.")
 			printThemeList()
@@ -163,7 +168,7 @@ if __name__ == "__main__":
 	configfile.flush()
 	configfile.close()
 
-	if restart_arg > 0:
+	if restart:
 		system("i3-msg restart")
 	
 	exit(0)
