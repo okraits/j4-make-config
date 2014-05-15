@@ -13,17 +13,18 @@ from sys import argv
 SYSTEM_THEME_PATH = "/usr/share/j4-make-config-git/themes"
 THEME_PATH = ""
 i3_PATH = ""
-i3_BASECONFIG = ""
-i3_CONFIG = ""
+i3_BASECONFIG_PATH = ""
+i3_CONFIG_PATH = ""
 # cli arguments
-theme_name = ""
-append_list = []
-# flags
+theme_name = None
+appendFiles_list = []
 noTheme = False
-restart = False
+doRestart = False
+# variables for config processing
+themes_list = {}
+baselines_list = []
 windowActive = False
 barActive = False
-# data variables
 windowText = ""
 barText = ""
 
@@ -59,7 +60,7 @@ Restart i3 after creating the config file:
 def printThemeList():
 	print("\nAvailable themes:")
 	print("=================")
-	print("\n".join(sorted(themes.keys())))
+	print("\n".join(sorted(themes_list.keys())))
 
 if __name__ == "__main__":
 	# detect i3 configuration directory
@@ -69,17 +70,16 @@ if __name__ == "__main__":
 	else:
 		# set paths
 		THEME_PATH = i3_PATH + "/themes"
-		i3_BASECONFIG = i3_PATH + "/config.base"
-		i3_CONFIG = i3_PATH + "/config"
+		i3_BASECONFIG_PATH = i3_PATH + "/config.base"
+		i3_CONFIG_PATH = i3_PATH + "/config"
 		# fill themes dictionary with names and paths
-		themes = {}
 		try:
 			if path.exists(SYSTEM_THEME_PATH):
 				for theme in listdir(SYSTEM_THEME_PATH):
-					themes[theme] = SYSTEM_THEME_PATH + "/" + theme
+					themes_list[theme] = SYSTEM_THEME_PATH + "/" + theme
 			if path.exists(THEME_PATH):
 				for theme in listdir(THEME_PATH):
-					themes[theme] = THEME_PATH + "/" + theme
+					themes_list[theme] = THEME_PATH + "/" + theme
 		except (IOError, OSError):
 			print("Error: No themes found.")
 			exit(1)
@@ -104,11 +104,11 @@ if __name__ == "__main__":
 	elif (len(argv) > 2):
 		for i in range(1, len(argv)):
 			if argv[i] == "-r":
-				restart = True
+				doRestart = True
 			elif argv[i] == "-a":
-				# add next argument to append_list
+				# add next argument to appendFiles_list
 				try:
-					append_list.append(argv[i+1])
+					appendFiles_list.append(argv[i+1])
 				except IndexError:
 					# wrong number of cli arguments
 					printUsageInfo()
@@ -128,13 +128,16 @@ if __name__ == "__main__":
 	# we must not include a theme in the config file
 	if theme_name == "none":
 		noTheme = True
+	elif theme_name is None:
+		print("Error: theme argument is missing.")
+		exit(1)
 	
 	if not noTheme:
 		# try to open given filename
 		try:
-			themefile = open(themes[theme_name], "r")
+			themefile = open(themes_list[theme_name], "r")
 		except (KeyError, IOError):
-			print("Error: given theme does not exist.")
+			print("Error: theme %s does not exist." % theme_name)
 			printThemeList()
 			exit(1)
 		
@@ -155,21 +158,35 @@ if __name__ == "__main__":
 	
 	# try to open i3 base config file
 	try:
-		basefile = open(i3_BASECONFIG, "r")
+		basefile = open(i3_BASECONFIG_PATH, "r")
 	except IOError:
 		print("Error: i3 base config file could not be opened.")
 		exit(1)
+	# read all lines of base config into list
+	baselines_list.extend(basefile.readlines())
+	basefile.close()
+	
+	# append all additional configuration files
+	for appendFilename in appendFiles_list:
+		try:
+			appendFile = open(i3_PATH + "/" + appendFilename, "r")
+		except IOError:
+			print("Error: file %s could not be opened." % appendFilename)
+			exit(1)
+		# read all lines of appendFile into list
+		baselines_list.extend(appendFile.readlines())
+		appendFile.close()
 	
 	# try to open i3 config file
 	try:
-		configfile = open(i3_CONFIG, "w")
+		configfile = open(i3_CONFIG_PATH, "w")
 	except IOError:
 		print("Error: i3 config file could not be created.")
 		exit(1)
 	
-	# read base config file, write content to config file
+	# iterate over base config lines, write all to config file
 	# and insert theme config at the right place
-	for line in basefile:
+	for line in baselines_list:
 		if "$i3-theme-window" in line:
 			if not noTheme:
 				configfile.write(windowText)
@@ -178,11 +195,10 @@ if __name__ == "__main__":
 				configfile.write(barText)
 		else:
 			configfile.write(line)
-	basefile.close()
 	configfile.flush()
 	configfile.close()
 
-	if restart:
+	if doRestart:
 		system("i3-msg restart")
 	
 	exit(0)
