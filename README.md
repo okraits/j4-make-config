@@ -115,12 +115,14 @@ Now you are prepared for running *j4-make-config* for the first time.
 
 **Hint:**
 
-    You can also add those markers to the additional configuration
-    files you want to append. They will also get replaced with the
-    configuration options in the theme file.
+You can also add those markers to the additional configuration
+files you want to append. They will also get replaced with the
+configuration options in the theme file.
 
-    For example, you can have different i3bar sections in different additional
-    configuration files and still have them themed by adding those markers.
+For example, you can have different i3bar sections in different additional
+configuration files and still have them themed by adding those markers.
+
+**Generating the config file:**
 
 To understand what will happen, we take a look at the structure of a
 theme file:
@@ -177,7 +179,8 @@ This software was initiated by Oliver Kraitschy (http://okraits.de).
 Please feel free to send him feedback and questions regarding
 bugreports, feature requests, improvements, themes, etc. via mail at
 [okraits[at]arcor[dot]de](mailto:okraits@arcor.de). You can also contact
-him in [#i3 on irc.twice-irc.de]( irc://irc.twice-irc.de/i3).
+him in [#j4tools on irc.twice-irc.de]( irc://irc.twice-irc.de/j4tools)
+and [#i3 on irc.twice-irc.de]( irc://irc.twice-irc.de/i3).
 
 ### Todo list
 
