@@ -1,8 +1,8 @@
-# j4-make-config (aka i3-theme)
+## j4-make-config (a.k.a. i3-theme)
 
-## Universal theme switcher and config generator for the i3 wm
+#### Universal theme switcher and config generator for the i3 wm
 
-### 1. Overview
+### Overview
 
 The purpose of this script for the i3 windowmanager is to easily switch
 between several sets of configuration options ("themes"), but also to
@@ -32,49 +32,40 @@ So you can do things like:
 - have different keybindings depending on the keyboard you are using
 - and much more - any i3 configuration option can be used!
 
-### 2. License
+### Usage
 
-This software is released under the terms of the
-GNU General Public License v2:
+To create an i3 configuration which includes a specific theme, run:
 
-[http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt](http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt)
+    j4-make-config <theme-name>
 
-The theme files are either ports of themes from other window managers,
-assembled from i3 configurations found on the net or original themes
-done by various peole. Oliver Kraitschy does not have any copyright for
-themes ported from other window managers, found on the net or done by
-other people.
+To create an i3 configuration without including a theme, run:
 
-### 3. Authorship, feedback, questions and contributions
+    j4-make-config none
 
-There is a git repository available at github:
+To let j4-make-config restart i3 after creating an i3 configuration, run:
 
-[https://github.com/okraits/j4-make-config](https://github.com/okraits/j4-make-config)
+    j4-make-config -r <theme-name>|none
 
-This software was initiated by Oliver Kraitschy (http://okraits.de).
-Please feel free to send him feedback and questions regarding
-bugreports, feature requests, improvements, themes, etc. via mail at
-[okraits[at]arcor[dot]de](mailto:okraits@arcor.de). You can also contact
-him in [#i3 on irc.twice-irc.de]( irc://irc.twice-irc.de/i3).
+To append additional configuration from files in the i3 config directory, run:
 
-### 4. Installation
+    j4-make-config -a <file-name> -a <another-file-name> <theme-name>|none
 
-Extract the tarball you downloaded.
+To append additional configuration and restart i3 after creating the config file, run:
 
-The resulting directory contains a python script named *j4-make-config*. Place
-it anywhere in your $PATH, for example in */home/yourUserName/bin*, and
-ensure that it is executable.
+    j4-make-config -r -a <file-name> <theme-name>|none
 
-The resulting directory also contains a directory named *themes*. It
-contains all themes distributed with *j4-make-config*. You must move it to the
-directory where your i3 config file is.
+### Installation
 
-As the next step, you should prepare your i3 configuration file for
-*j4-make-config*. If you already have window color settings in your i3
-configuration file, you should completely replace them with a marker
-which gets replaced with the window configuration included in the chosen
-theme file. We demonstrate this with the default color settings
-(normally they are not explicitly set in the i3 configuration file):
+Place *j4-make-config* anywhere in your $PATH, for example in
+*/home/yourUserName/bin*, and ensure that it is executable. Move the
+directory named *themes* to the directory where your i3 config file is.
+
+After that, you should prepare your i3 config file for *j4-make-config*.
+If you already have window color settings in your i3 config file, you
+should completely replace them with a marker which gets replaced with the
+window configuration included in the chosen theme file. We demonstrate
+this with the default color settings (normally they are not explicitly set
+in the i3 configuration file):
 
 Replace the default colors
 
@@ -89,17 +80,17 @@ with the following marker:
     # $i3-theme-window
 
 If you didn't configure custom window colors yet, you can simply add the
-marker *# $i3-theme-window* at the end of your i3 configuration file.
-Please note that the marker begins with the character '#' because it is like
-a comment in an i3 configuration.
+marker *# $i3-theme-window* at the end of your i3 config file.
+Please note that the marker begins with the character '#' because it is
+a comment in the i3 configuration.
 
 You can apply the same procedure to prepare your bar section for
-*j4-make-config*. If we take the default bar colors for example (normally they
-are not explicitly set in the i3 configuration file), your bar section
+*j4-make-config*. If we take the default bar colors for example (normally
+they are not explicitly set in the i3 config file), your bar section
 should look like this:
 
     bar {
-    	status_command i3status
+        status_command i3status
         colors {
             background #000000
             statusline #ffffff
@@ -119,8 +110,17 @@ Replace the whole colors section with the following marker:
 If you didn't configure custom bar colors yet, you can simply add the
 marker *# $i3-theme-bar* at the bottom of your bar section.
 
-As a last step, you should copy your *config* file to *config.base*.
+As a last step, you should rename your *config* file to *config.base*.
 Now you are prepared for running *j4-make-config* for the first time.
+
+**Hint:**
+
+    You can also add those markers to the additional configuration
+    files you want to append. They will also get replaced with the
+    configuration options in the theme file.
+
+    For example, you can have different i3bar sections in different additional
+    configuration files and still have them themed by adding those markers.
 
 To understand what will happen, we take a look at the structure of a
 theme file:
@@ -135,47 +135,56 @@ theme file:
     some configuration options
     ...
 
-Here's what will happen when you run *j4-make-config*:
+Here's what j4-make-config will do:
 
-- It will read the contents of *config.base* and the theme file you
-provided as a commandline argument.
-- It will replace the marker *# $i3-theme-window* in *config.base* with
-the configuration options after this marker in the theme file.
-- It will replace the marker *# $i3-theme-bar* in *config.base*
-with the configuration options after this marker in the theme file.
-- It will not modify *config.base*, instead it will write the resulting
-configuration into a new i3 *config* file.
+- read the contents of *config.base*, the additional configuration file(s)
+and the theme file you provided as commandline arguments
+- concatenate the contents of *config.base* and the additional configuration
+file(s)
+- replace the marker *# $i3-theme-window* with the configuration options
+after this marker in the theme file
+- replace the marker *# $i3-theme-bar* with the configuration options
+after this marker in the theme file
+- leave *config.base* untouched, instead it will write the resulting
+configuration to a new i3 *config* file
 
-### 5. Usage
-
-To create an i3 configuration which includes a certain theme, run:
-
-    j4-make-config <theme-name>
-
-To create an i3 configuration without including a theme, run:
-
-    j4-make-config none
-
-To let j4-make-config restart i3 after creating an i3 configuration, run:
-
-	j4-make-config -r <theme-name>|none
-
-### 6. Screenshots
+### Screenshots
 
 There are screenshots of some, but not all themes available at:
 
 [http://www.okraits.de/index.php?section=projects&page=j4-make-config](http://www.okraits.de/index.php?section=projects&page=j4-make-config)
 
-### 7. Todo list
+### License
+
+This software is released under the terms of the
+GNU General Public License v2:
+
+[http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt](http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt)
+
+The theme files are either ports of themes from other window managers,
+assembled from i3 configurations found on the net or original themes
+done by various peole. Oliver Kraitschy does not have any copyright for
+themes ported from other window managers, found on the net or done by
+other people.
+
+### Authorship, feedback, questions and contributions
+
+There is a git repository available at github:
+
+[https://github.com/okraits/j4-make-config](https://github.com/okraits/j4-make-config)
+
+This software was initiated by Oliver Kraitschy (http://okraits.de).
+Please feel free to send him feedback and questions regarding
+bugreports, feature requests, improvements, themes, etc. via mail at
+[okraits[at]arcor[dot]de](mailto:okraits@arcor.de). You can also contact
+him in [#i3 on irc.twice-irc.de]( irc://irc.twice-irc.de/i3).
+
+### Todo list
 
 These are things which are planned to be done, at some point
 in the future.
 
 - rename i3-theme to j4-make-config in all files (themes etc.)
-- make j4-make-config a more general config-generation tool:
-  - have one general config file *config.base*
-  - have several host-specific config files *config.hostname*
-  - then issue j4-make-config -t *theme* -H *hostname*
 - have more than 2 markers, that means: exchange each marker
   in the config.base file with the corresponding marker in
   the theme file (or in a host-specific config file)

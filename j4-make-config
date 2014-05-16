@@ -45,16 +45,18 @@ def detectConfigDir():
 
 def printUsageInfo():
 	info = """i3 config generator/switcher\n
-Usage:
-======
-Set a specific theme:
+Usage examples:
+===============
+Create config file and include a specific theme:
 \tj4-make-config <theme-name>
 Create config file without including a theme:
 \tj4-make-config none
-Append additional configuration from a file:
-\tj4-make-config -a <file-name>
-Restart i3 after creating the config file:
-\tj4-make-config -r <theme-name>|none"""
+Include a specific/no theme and restart i3 after creating the config file:
+\tj4-make-config -r <theme-name>|none
+Append additional configuration from files in the i3 config directory:
+\tj4-make-config -a <file-name> -a <another-file-name> <theme-name>|none
+Append additional configuration and restart i3 after creating the config file:
+\tj4-make-config -r -a <file-name> <theme-name>|none"""
 	print(info)
 
 def printThemeList():
