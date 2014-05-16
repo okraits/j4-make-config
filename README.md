@@ -1,30 +1,36 @@
-# README for j4-make-config script
+# j4-make-config (aka i3-theme)
 
-## Contents:
-
-1. Overview
-2. License
-3. Authorship, feedback, questions and contributions
-4. Installation
-5. Usage
-6. Screenshots 
-7. Todo list
+## Universal theme switcher and config generator for the i3 wm
 
 ### 1. Overview
 
-The purpose of this script is to easily set and switch between several
-sets of configuration options ("themes") for the i3 window manager.
-These sets of configuration options are supposed to contain options
-regarding the looks of the window manager, that is window colors,
-borderstyle, i3bar colors, fonts.  
+The purpose of this script for the i3 windowmanager is to easily switch
+between several sets of configuration options ("themes"), but also to
+easily put together a complete config from several different configuration
+parts, depending on the environment you are currently working in.
 
-It is possible to include any i3 configuration options in a theme,
-e.g. adding a keybinding for dmenu colored to match the theme,
-executing an external program which sets the root window background, etc.  
+Themes can be used to set:
+
+- borderstyle
+- window and i3bar colors
+- window and i3bar font
+- layout mode
+- i3bar position
+- desktop (root window) background
+- keybinding to call dmenu with matching colors
+- and much more - any i3 configuration option can be used!
 
 There's a bunch of theme files which are distributed together with
-the j4-make-config script to give the user a variety of themes to
-choose from.
+j4-make-config to give the user a variety of themes to choose from.
+
+j4-make-config can also put together a complete config from several different
+configuration parts, depending on the environment you are currently working in.
+So you can do things like:
+
+- have different layouts and font sizes for different screen sizes
+- have one i3bar section for your laptop and two i3bar sections for your dual monitor setup at home
+- have different keybindings depending on the keyboard you are using
+- and much more - any i3 configuration option can be used!
 
 ### 2. License
 
