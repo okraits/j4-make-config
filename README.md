@@ -32,6 +32,12 @@ So you can do things like:
 - have different keybindings depending on the keyboard you are using
 - and much more - any i3 configuration option can be used!
 
+j4-make-config stores the most recently used arguments in */home/yourUserName/.j4-make-config.rc*,
+so you can easily refresh your i3 config by running *j4-make-config* without arguments
+or by running *source /home/yourUserName/.j4-make-config.rc*. If you pulled in
+changes of parts of your config or themes, your i3 config will get updated
+automatically.
+
 ### Usage
 
 To create an i3 configuration which includes a specific theme, run:
@@ -53,6 +59,10 @@ To append additional configuration from files in the i3 config directory, run:
 To append additional configuration and restart i3 after creating the config file, run:
 
     j4-make-config -r -a <file-name> <theme-name>|none
+
+To run j4-make-config with the most recently used arguments:
+
+    j4-make-config
 
 ### Installation
 

@@ -27,6 +27,7 @@ windowActive = False
 barActive = False
 windowText = ""
 barText = ""
+commandString = ""
 
 def detectConfigDir():
 	global i3_PATH
@@ -56,7 +57,9 @@ Include a specific/no theme and restart i3 after creating the config file:
 Append additional configuration from files in the i3 config directory:
 \tj4-make-config -a <file-name> -a <another-file-name> <theme-name>|none
 Append additional configuration and restart i3 after creating the config file:
-\tj4-make-config -r -a <file-name> <theme-name>|none"""
+\tj4-make-config -r -a <file-name> <theme-name>|none
+Run j4-make-config with the most recently used arguments:
+\tj4-make-config"""
 	print(info)
 
 def printThemeList():
@@ -92,9 +95,21 @@ if __name__ == "__main__":
 	# -r
 	# -a <file-name>
 	if (len(argv) == 1):
-		# in the future we'll use the previously used options here
-		print("Nothing to do.")
-		exit(0)
+		# no arguments given, use commandstring from rc file
+		if path.exists(getenv("HOME") + "/.j4-make-config.rc"):
+			try:
+				rcfile = open(getenv("HOME") + "/.j4-make-config.rc", "r")
+			except IOError:
+				print("Error: file %s could not be opened." % (getenv("HOME") + "/.j4-make-config.rc"))
+				exit(1)
+			commandString = rcfile.read()
+			rcfile.close()
+			print("Executing: " + commandString)
+			retval = system(commandString)
+			exit(retval)
+		else:
+			print("Error: file %s does not exist yet." % (getenv("HOME") + "/.j4-make-config.rc"))
+			exit(1)
 	elif (argv[1] == "-h" or argv[1] == "--help"):
 		# print usage info independent of argument count
 		printUsageInfo()
@@ -202,5 +217,16 @@ if __name__ == "__main__":
 
 	if doRestart:
 		system("i3-msg restart")
+	
+	# store commandstring in rc file
+	commandString = ' '.join(argv)
+	try:
+		rcfile = open(getenv("HOME") + "/.j4-make-config.rc", "w")
+	except IOError:
+		print("Error: file %s could not be opened." % (getenv("HOME") + "/.j4-make-config.rc"))
+		exit(1)
+	rcfile.write(commandString)
+	rcfile.flush()
+	rcfile.close()
 	
 	exit(0)
