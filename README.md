@@ -197,14 +197,11 @@ and [#i3 on irc.twice-irc.de]( irc://irc.twice-irc.de/i3).
 These are things which are planned to be done, at some point
 in the future.
 
-- rename i3-theme to j4-make-config in all files (themes etc.)
 - have more than 2 markers, that means: exchange each marker
   in the config.base file with the corresponding marker in
   the theme file (or in a host-specific config file)
 - optional: j4-make-config starts i3 after it generated a
   temporary config file
-- running j4-make-config without arguments makes j4-make-config
-  use the last used options - these must be stored in a rc file
 - put every theme in a separate directory - this would help to
   - provide variations of themes
   - enable users to make modifications of themes
