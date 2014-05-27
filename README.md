@@ -206,3 +206,5 @@ in the future.
   - provide variations of themes
   - enable users to make modifications of themes
   - provide additional files like licences or README files
+- add mechanism to color dmenu output in themes and use a specific font
+- add themeing and additional config parts to i3status config
