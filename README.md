@@ -48,7 +48,7 @@ To create an i3 configuration without including a theme, run:
 
     j4-make-config none
 
-To let j4-make-config restart i3 after creating an i3 configuration, run:
+To let j4-make-config reload i3 after creating an i3 configuration, run:
 
     j4-make-config -r <theme-name>|none
 
@@ -56,7 +56,7 @@ To append additional configuration from files in the i3 config directory, run:
 
     j4-make-config -a <file-name> -a <another-file-name> <theme-name>|none
 
-To append additional configuration and restart i3 after creating the config file, run:
+To append additional configuration and reload i3 after creating the config file, run:
 
     j4-make-config -r -a <file-name> <theme-name>|none
 

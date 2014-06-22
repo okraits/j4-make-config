@@ -19,7 +19,7 @@ i3_CONFIG_PATH = ""
 theme_name = None
 appendFiles_list = []
 noTheme = False
-doRestart = False
+doReload = False
 # variables for config processing
 themes_list = {}
 baselines_list = []
@@ -52,11 +52,11 @@ Create config file and include a specific theme:
 \tj4-make-config <theme-name>
 Create config file without including a theme:
 \tj4-make-config none
-Include a specific/no theme and restart i3 after creating the config file:
+Include a specific/no theme and reload i3 after creating the config file:
 \tj4-make-config -r <theme-name>|none
 Append additional configuration from files in the i3 config directory:
 \tj4-make-config -a <file-name> -a <another-file-name> <theme-name>|none
-Append additional configuration and restart i3 after creating the config file:
+Append additional configuration and reload i3 after creating the config file:
 \tj4-make-config -r -a <file-name> <theme-name>|none
 Run j4-make-config with the most recently used arguments:
 \tj4-make-config"""
@@ -121,7 +121,7 @@ if __name__ == "__main__":
 	elif (len(argv) > 2):
 		for i in range(1, len(argv)):
 			if argv[i] == "-r":
-				doRestart = True
+				doReload = True
 			elif argv[i] == "-a":
 				# add next argument to appendFiles_list
 				try:
@@ -215,8 +215,8 @@ if __name__ == "__main__":
 	configfile.flush()
 	configfile.close()
 
-	if doRestart:
-		system("i3-msg restart")
+	if doReload:
+		system("i3-msg reload")
 	
 	# store commandstring in rc file
 	commandString = ' '.join(argv)
