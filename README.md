@@ -38,6 +38,12 @@ or by running *source /home/yourUserName/.j4-make-config.rc*. If you pulled in
 changes of parts of your config or themes, your i3 config will get updated
 automatically.
 
+### Screenshots
+
+Everybody loves screenshots, so here they are. Take a look at my personal project site:
+
+[http://www.okraits.de/index.php?section=projects&page=j4-make-config](http://www.okraits.de/index.php?section=projects&page=j4-make-config)
+
 ### Usage
 
 To create an i3 configuration which includes a specific theme, run:
@@ -159,12 +165,6 @@ after this marker in the theme file
 after this marker in the theme file
 - leave *config.base* untouched, instead it will write the resulting
 configuration to a new i3 *config* file
-
-### Screenshots
-
-There are screenshots of some, but not all themes available at:
-
-[http://www.okraits.de/index.php?section=projects&page=j4-make-config](http://www.okraits.de/index.php?section=projects&page=j4-make-config)
 
 ### License
 
