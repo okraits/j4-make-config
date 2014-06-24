@@ -1,0 +1,26 @@
+# lime theme for i3 by wei2912
+# based on archlinux theme by okraits
+
+# this theme is intended to be simple
+# and gentle on eyes.
+
+# generated from `i3-style`
+# at https://github.com/acrisci/i3-style
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #4E9C00 #4E9C00 #FFFFFF #FFFFFF
+client.focused_inactive #1B3600 #1B3600 #888888 #FFFFFF
+client.unfocused        #333333 #333333 #888888 #FFFFFF
+client.urgent           #C20000 #C20000 #FFFFFF #FFFFFF
+
+# $i3-theme-bar
+colors {
+	separator  #888888
+	background #333333
+	statusline #FFFFFF
+	focused_workspace  #4E9C00 #4E9C00 #FFFFFF
+	active_workspace   #333333 #333333 #FFFFFF
+	inactive_workspace #333333 #333333 #888888
+	urgent_workspace   #C20000 #C20000 #FFFFFF
+}
