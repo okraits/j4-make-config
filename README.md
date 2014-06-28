@@ -44,6 +44,13 @@ Everybody loves screenshots, so here they are. Take a look at my personal projec
 
 [http://www.okraits.de/index.php?section=projects&page=j4-make-config](http://www.okraits.de/index.php?section=projects&page=j4-make-config)
 
+### Requirements
+
+j4-make-config has the following requirements:
+
+- Python 2 or 3
+- xsetroot (optional for setting the root window background)
+
 ### Usage
 
 To create an i3 configuration which includes a specific theme, run:
