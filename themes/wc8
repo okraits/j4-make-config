@@ -1,0 +1,21 @@
+# windows classic 8 theme for i3wm by lasers
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #949494 #2E5492 #ffffff #08226C
+client.focused_inactive #949494 #848484 #D4CFB4 #292d2e
+client.unfocused        #949494 #848484 #D4CFB4 #292d2e
+client.urgent           #949494 #900000 #ffffff #A65900
+
+# $i3-background
+exec --no-startup-id xsetroot -solid #3975A9
+
+# $i3-theme-bar
+colors {
+    background #D6CEC8
+    statusline #000000
+    separator #D6CEC8
+    focused_workspace #08226C #08226C #ffffff
+    active_workspace #555555 #555555 #D4CFB4
+    inactive_workspace #949494 #949494 #D4CFB4
+    urgent_workspace   #2E5492 #2E5492 #ffffff
+}
