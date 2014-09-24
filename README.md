@@ -20,7 +20,7 @@ Themes can be used to set:
 - keybinding to call dmenu with matching colors
 - and much more - any i3 configuration option can be used!
 
-There's a bunch of theme files which are distributed together with
+A collection of theme files is distributed together with
 j4-make-config to give the user a variety of themes to choose from.
 
 j4-make-config can also put together a complete config from several different
@@ -204,6 +204,7 @@ and [#i3 on irc.twice-irc.de]( irc://irc.twice-irc.de/i3).
 These are things which are planned to be done, at some point
 in the future.
 
+- use argparse
 - have more than 2 markers, that means: exchange each marker
   in the config.base file with the corresponding marker in
   the theme file (or in a host-specific config file)
