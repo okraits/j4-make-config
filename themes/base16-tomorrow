@@ -1,0 +1,17 @@
+# Base16 Tomorrow, by Chris Kempson (http://chriskempson.com) 
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused #81a2be #81a2be #1d1f21 #282a2e
+client.focused_inactive #373b41 #373b41 #969896 #282a2e
+client.unfocused #282a2e #282a2e #969896 #282a2e
+client.urgent #373b41 #cc6666 #ffffff #cc6666
+# $i3-theme-bar
+colors {
+    separator #969896
+    background #1d1f21
+    statusline #c5c8c6
+    focused_workspace #81a2be #81a2be #1d1f21
+    active_workspace #373b41 #373b41 #ffffff
+    inactive_workspace #282a2e #282a2e #969896
+    urgent_workspace #cc6666 #cc6666 #ffffff
+}

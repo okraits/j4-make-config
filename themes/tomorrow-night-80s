@@ -1,0 +1,17 @@
+# Tomorrow Night 80s theme by jmfurlott <http://jmfurlott.com>
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused #99cc99 #99cc99 #000000 #2d2d2d
+client.focused_inactive #393939 #393939 #888888 #292d2e
+client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
+# $i3-theme-bar
+colors {
+    separator #515151
+    background #2d2d2d
+    statusline #cccccc
+    focused_workspace #99cc99 #99cc99 #000000
+    active_workspace #333333 #333333 #ffffff
+    inactive_workspace #2d2d2d #2d2d2d #999999
+    urgent_workspace #f2777a #f2777a #ffffff
+}

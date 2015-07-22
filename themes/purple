@@ -1,0 +1,17 @@
+# Purple theme by AAlakkad <http://aalakkad.me>
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused #664477 #664477 #cccccc #e7d8b1
+client.focused_inactive #e7d8b1 #e7d8b1 #181715 #A074C4
+client.unfocused #222133 #222133 #AAAAAA #A074C4
+client.urgent #CE4045 #CE4045 #e7d8b1 #DCCD69
+# $i3-theme-bar
+colors {
+    separator #AAAAAA
+    background #222133
+    statusline #FFFFFF
+    focused_workspace #664477 #664477 #cccccc
+    active_workspace #DCCD69 #DCCD69 #181715
+    inactive_workspace #222133 #222133 #AAAAAA
+    urgent_workspace #CE4045 #CE4045 #FFFFFF
+}
