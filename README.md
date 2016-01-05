@@ -182,22 +182,14 @@ GNU General Public License v2:
 
 The theme files are either ports of themes from other window managers,
 assembled from i3 configurations found on the net or original themes
-done by various peole. Oliver Kraitschy does not have any copyright for
-themes ported from other window managers, found on the net or done by
-other people.
+done by various people. I do not have any copyright for them except when
+stated differently.
 
 ### Authorship, feedback, questions and contributions
 
-There is a git repository available at github:
-
-[https://github.com/okraits/j4-make-config](https://github.com/okraits/j4-make-config)
-
-This software was initiated by Oliver Kraitschy (http://okraits.de).
-Please feel free to send him feedback and questions regarding
-bugreports, feature requests, improvements, themes, etc. via mail at
-[okraits[at]arcor[dot]de](mailto:okraits@arcor.de). You can also contact
-him in [#j4tools on irc.twice-irc.de]( irc://irc.twice-irc.de/j4tools)
-and [#i3 on irc.twice-irc.de]( irc://irc.twice-irc.de/i3).
+Please feel free to open issues on github for bugreports, feature requests
+and new themes. You can also contact me in *#j4tools* and *#i3* on the
+freenode IRC network.
 
 ### Todo list
 
