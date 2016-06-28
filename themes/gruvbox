@@ -1,0 +1,23 @@
+# gruvbox theme for i3 by okraits, http://okraits.de
+# colors ported from wmii theme by https://github.com/sunaku
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #3c3836 #32302f #fabd2f #fabd2f
+client.focused_inactive #3c3836 #504945 #d5c4a1 #504945
+client.unfocused        #3c3836 #504945 #d5c4a1 #504945
+client.urgent           #7c6f64 #fabd2f #3c3836 #fabd2f
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '#3c3836'
+
+# $i3-theme-bar
+colors {
+	background #504945
+	statusline #d5c4a1
+	separator #3c3836 
+	focused_workspace #3c3836 #32302f #fabd2f
+	active_workspace #3c3836 #504945 #d5c4a1
+	inactive_workspace #3c3836 #504945 #d5c4a1
+	urgent_workspace   #7c6f64 #fabd2f #3c3836
+}
