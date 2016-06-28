@@ -40,9 +40,9 @@ automatically.
 
 ### Screenshots
 
-Everybody loves screenshots, so here they are. Take a look at my personal project site:
+Everybody loves screenshots, so here they are.
 
-[http://www.okraits.de/index.php?section=projects&page=j4-make-config](http://www.okraits.de/index.php?section=projects&page=j4-make-config)
+![Screenshots](screenshots.png)
 
 ### Requirements
 
