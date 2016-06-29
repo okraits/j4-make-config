@@ -40,9 +40,9 @@ automatically.
 
 ### Screenshots
 
-Everybody loves screenshots, so here they are.
+Everybody loves screenshots, so here they are. Click the image to view it in fullsize.
 
-![Screenshots](screenshots.png)
+<a href="https://raw.githubusercontent.com/okraits/j4-make-config/master/screenshots.png"><img src="screenshots.png" alt="screenshots.png" width="400"/></a>
 
 ### Requirements
 
