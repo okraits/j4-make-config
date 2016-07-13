@@ -1,0 +1,18 @@
+# greenish theme inspired by vain's dwm: https://www.uninformativ.de/desktop/2012-09-13--dwm-greenish.png
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #383838 #8CFF00 #383838 #EFEFEF
+client.focused_inactive #333333 #333333 #ffffff #EFEFEF
+client.unfocused        #333333 #333333 #888888 #EFEFEF
+client.urgent           #2f343a #900000 #ffffff #900000
+# $i3-theme-bar
+colors {
+	background #0D0D0D
+	statusline #EFEFEF
+	separator #666666
+	focused_workspace  #383838 #383838 #8CFF00
+	active_workspace   #0D0D0D #0D0D0D #EFEFEF
+	inactive_workspace #0D0D0D #0D0D0D #EFEFEF
+	urgent_workspace   #2f343a #900000 #ffffff
+}
