@@ -104,9 +104,14 @@ if __name__ == "__main__":
 				print("Error: file %s could not be opened." % (getenv("HOME") + "/.j4-make-config.rc"))
 				exit(1)
 			commandString = rcfile.read()
+			# in case of old style rc-file containing the j4-make-config command, this should be deleted
+			idx = commandString.find("j4-make-config")
+			if idx:
+				# find first space after the command and delete every charater from begin to this index
+				commandString = commandString[commandString.find(" ",idx) + 1:];
 			rcfile.close()
-			print("Executing: " + commandString)
-			retval = system(commandString)
+			print("Executing: " + argv[0] + ' ' + commandString)
+			retval = system(argv[0] + ' ' + commandString)
 			exit(retval)
 		else:
 			print("Error: file %s does not exist yet." % (getenv("HOME") + "/.j4-make-config.rc"))
@@ -228,7 +233,7 @@ if __name__ == "__main__":
 		system("i3-msg reload")
 	
 	# store commandstring in rc file
-	commandString = ' '.join(argv)
+	commandString = ' '.join(argv[1:])
 	try:
 		rcfile = open(getenv("HOME") + "/.j4-make-config.rc", "w")
 	except IOError:
