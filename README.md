@@ -49,6 +49,7 @@ Everybody loves screenshots, so here they are. Click the image to view it in ful
 j4-make-config has the following requirements:
 
 - Python 2 or 3
+- rofi (optional - to choose a theme in interactive mode)
 - xsetroot (optional for setting the root window background)
 
 ### Usage
@@ -64,6 +65,10 @@ To create an i3 configuration without including a theme, run:
 To let j4-make-config reload i3 after creating an i3 configuration, run:
 
     j4-make-config -r <theme-name>|none
+
+To use the interactive mode to choose a theme (reloads i3, requires rofi), run:
+
+    j4-make-config -i
 
 To append additional configuration from files in the i3 config directory, run:
 

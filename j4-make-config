@@ -6,6 +6,7 @@
 
 from os import path, getenv, listdir, system
 from sys import argv
+from subprocess import Popen, PIPE
 
 # global variables
 
@@ -115,6 +116,14 @@ if __name__ == "__main__":
 		printUsageInfo()
 		printThemeList()
 		exit(0)
+	elif (argv[1] == "-i"):
+		ps = Popen("echo '%s' | rofi -dmenu" % ("\n".join(sorted(themes_list.keys()))), stdout=PIPE, stderr=PIPE, shell=True, universal_newlines=True)
+		for line in ps.stdout:
+			theme_name = line[:-1]
+			doReload = True
+			break
+		if theme_name is None:
+			exit(0)
 	elif (len(argv) == 2):
 		# only theme-name given
 		theme_name = argv[1]
