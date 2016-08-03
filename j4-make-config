@@ -228,7 +228,10 @@ if __name__ == "__main__":
 		system("i3-msg reload")
 	
 	# store commandstring in rc file
-	commandString = ' '.join(argv)
+	if (argv[1] != "-i"):
+		commandString = ' '.join(argv)
+	else:
+		commandString = argv[0] + ' -r ' + theme_name
 	try:
 		rcfile = open(getenv("HOME") + "/.j4-make-config.rc", "w")
 	except IOError:
