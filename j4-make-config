@@ -117,7 +117,7 @@ if __name__ == "__main__":
 		printThemeList()
 		exit(0)
 	elif (argv[1] == "-i"):
-		ps = Popen("echo '%s' | rofi -dmenu" % ("\n".join(sorted(themes_list.keys()))), stdout=PIPE, stderr=PIPE, shell=True, universal_newlines=True)
+		ps = Popen("echo '%s' | rofi -width 30 -dmenu -p 'Set i3 theme:'" % ("\n".join(sorted(themes_list.keys()))), stdout=PIPE, stderr=PIPE, shell=True, universal_newlines=True)
 		for line in ps.stdout:
 			theme_name = line[:-1]
 			doReload = True

@@ -23,6 +23,10 @@ Themes can be used to set:
 A collection of theme files is distributed together with
 j4-make-config to give the user a variety of themes to choose from.
 
+By utilizing rofi, j4-make-config provides a graphical menu to select a theme ("interactive mode"):
+
+<a href="https://raw.githubusercontent.com/okraits/j4-make-config/master/rofi.png"><img src="rofi.png" alt="rofi.png" width="300"/></a>
+
 j4-make-config can also put together a complete config from several different
 configuration parts, depending on the environment you are currently working in.
 So you can do things like:
