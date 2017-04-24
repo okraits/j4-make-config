@@ -213,10 +213,11 @@ if __name__ == "__main__":
 	# iterate over base config lines, write all to config file
 	# and insert theme config at the right place
 	for line in baselines_list:
-		if "$i3-theme-window" in line:
+		line = line.lstrip()
+		if line.startswith("# $i3-theme-window"):
 			if not noTheme:
 				configfile.write(windowText)
-		elif "$i3-theme-bar" in line:
+		elif line.startswith("# $i3-theme-bar"):
 			if not noTheme:
 				configfile.write(barText)
 		else:
