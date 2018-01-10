@@ -1,0 +1,96 @@
+# solarized theme for i3 by lasers
+
+# Hi! If you don't like cyan, you can uncomment two lines first before
+# you try anything else. If you like borders, I picked a gray color that will
+# serve as an universal border color for the bar and the containers.
+# I hope you like it. Cheers. :>
+
+# $i3-status
+color_bad = "#DC322F"
+color_degraded = "#b58900"
+color_good = "#859900"
+
+# $i3-theme-window
+# solarized accents
+set $yellow	#b58900
+set $orange	#cb4b16
+set $red	#dc322f
+set $magenta	#d33682
+set $violet	#6c71c4
+set $blue	#268bd2
+set $cyan	#2aa198
+set $green	#859900
+
+# solarized dark
+set $baseA3 #002b36
+set $baseA2 #073642
+set $baseA1 #586e75
+set $baseA0 #657b83
+set $baseB0 #839496
+set $baseB1 #93a1a1
+set $baseB2 #eee8d5
+set $baseB3 #fdf6e3
+set $custom #1c5766
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '$baseA2'
+
+###################
+# solarized (clean)
+###################
+# clientclass 			border  backgr. text 	indicator
+client.focused 			$green	$green	$baseB3 $blue
+client.focused_inactive		$cyan	$cyan	$baseB2 $violet
+client.unfocused  		$baseA2 $baseA2 $baseB1 $baseA1
+#client.urgent 	 		$orange $orange $baseB3 $red
+client.urgent 	 		$yellow $yellow $baseB3 $orange
+
+####################
+# solarized (borders)
+####################
+# clientclass			border  backgr. text 	indicator
+client.focused    		$baseB0	$green	$baseB3 $blue
+client.focused_inactive 	$baseB0	$cyan	$baseB2 $violet
+client.unfocused  		$baseB0 $baseA2 $baseB1 $baseA1
+#client.urgent     		$baseB0 $orange $baseB3 $red
+client.urgent 	 		$baseB0 $yellow $baseB3 $orange
+
+###############################
+# disable cyan? (clean/borders)
+###############################
+#client.focused_inactive 	$custom $custom $baseB2 $violet
+#client.focused_inactive 	$baseB0 $custom $baseB2 $violet
+
+# $i3-theme-bar
+colors {
+ 	# status
+	separator $blue
+ 	background $baseA3
+	statusline $baseB2
+
+ 	###################
+	# solarized (clean)
+	###################
+ 	# workclass 			border  backgr. text
+ 	#focused_workspace		$green  $green  $baseA3
+ 	#active_workspace		$cyan   $cyan   $baseA2
+ 	#inactive_workspace		$baseA2 $baseA2 $baseB1
+ 	#urgent_workspace		$orange $orange $baseB3
+ 	#urgent_workspace		$yellow $yellow $baseB3
+
+	#####################
+	# solarized (borders)
+	#####################
+	# workclass 			border backgr. text
+	focused_workspace 		$baseB0 $green  $baseA3
+	active_workspace 		$baseB0 $cyan   $baseA2
+	inactive_workspace 		$baseB0 $baseA2 $baseB1
+	#urgent_workspace 		$baseB0 $orange $baseB3
+	urgent_workspace 		$baseB0 $orange $baseB3
+
+	###############################
+	# disable cyan? (clean/borders)
+	###############################
+	#active_workspace		$custom $custom $baseB2
+	#active_workspace 		$baseB0 $custom $baseB2
+}

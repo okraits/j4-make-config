@@ -21,17 +21,6 @@ set $blue	#268bd2
 set $cyan	#2aa198
 set $green	#859900
 
-# solarized dark
-set $baseA3 #002b36
-set $baseA2 #073642
-set $baseA1 #586e75
-set $baseA0 #657b83
-set $baseB0 #839496
-set $baseB1 #93a1a1
-set $baseB2 #eee8d5
-set $baseB3 #fdf6e3
-set $custom #1c5766
-
 # solarized light
 set $baseA3 #fdf6e3
 set $baseA2 #eee8d5
