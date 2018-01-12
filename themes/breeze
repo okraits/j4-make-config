@@ -1,0 +1,19 @@
+# KDE breeze colors
+
+# $i3-theme-window
+# class border background text indicator child_border
+client.focused          #475057 #475057 #eff0f1 #bdc3c7 #475057
+client.focused_inactive #7f8c8d #7f8c8d #eff0f1 #bdc3c7 #7f8c8d
+client.unfocused        #eff0f1 #eff0f1 #bdc3c7 #bdc3c7 #eff0f1
+client.urgent           #3daee9 #3daee9 #eff0f1 #bdc3c7 #3daee9
+# $i3-theme-bar
+colors {
+    separator   #bfc2c4
+    background  #464b4f
+    statusline  #eff0f1
+
+    focused_workspace   #3c82a4 #3c82a4 #eff0f1
+    active_workspace    #4b4f54 #4b4f54 #dfe0e3
+    inactive_workspace  #4b4f54 #4b4f54 #dfe0e3
+    urgent_workspace    #3daee9 #3daee9 #eff0f1
+}
