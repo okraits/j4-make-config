@@ -1,0 +1,19 @@
+# solarized i3 theme taken from Hund
+# https://github.com/hund
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused #255662 #255662 #C0C0C0 #255662
+client.focused_inactive #073642 #073642 #839496 #073642
+client.unfocused #073642 #073642 #839496 #292d2e
+client.urgent #2f343a #A83838 #ffffff #A83838
+# $i3-theme-bar
+colors {
+    separator #666666
+    background #000000
+    statusline #839496
+    focused_workspace #4c7899 #285577 #C0C0C0
+    active_workspace #727272 #4F4F4F #C0C0C0
+    inactive_workspace #333333 #222222 #C0C0C0
+    urgent_workspace #BC5959 #A83838 #FFFFFF
+}
