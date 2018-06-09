@@ -140,7 +140,10 @@ if __name__ == "__main__":
             help="Create a config file using a specific theme or no theme.")
 
     ## Parsing the arguments.
-    args = parser.parse_args() 
+    if len(sys.argv)==1:
+        args = parser.parse_args(get_j4_cache())
+    else:
+        args = parser.parse_args() 
     if args.interactive:
         ps = Popen("echo '%s' | rofi -width 30 -dmenu -p 'Set i3 theme:'" % \
                 ("\n".join(sorted(themes_list.keys()))),
@@ -151,21 +154,10 @@ if __name__ == "__main__":
             set_j4_cache(args.theme, interactive=True)
         if args.theme is None:
             exit(0)
-    elif args.theme is None:
-        if args.append or args.refresh:
-            pass
-        else:
-            print("Error: theme argument is missing.")
-            exit(1)
-    else:
-        # no arguments given, use commandstring from rc file
-        args = parser.parse_args(get_j4_cache())
-    
-    # we must not include a theme in the config file
+
     if args.theme is None:
         print("Error: theme argument is missing.")
         exit(1)
-    
     if args.theme != 'none':
         # try to open given filename
         try:
