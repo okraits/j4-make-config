@@ -17,11 +17,6 @@ THEME_PATH = ""
 i3_PATH = ""
 i3_BASECONFIG_PATH = ""
 i3_CONFIG_PATH = ""
-# cli arguments
-theme_name = None
-appendFiles_list = []
-noTheme = False
-doReload = False
 # variables for config processing
 themes_list = {}
 baselines_list = []
@@ -46,7 +41,7 @@ def detectConfigDir():
     else:
         return False
 
-def printUsageInfo():
+def UsageInfo():
     info = """i3 config generator/switcher\n
 Usage examples:
 ===============
@@ -62,12 +57,18 @@ Append additional configuration and reload i3 after creating the config file:
 \tj4-make-config -r -a <file-name> <theme-name>|none
 Run j4-make-config with the most recently used arguments:
 \tj4-make-config"""
-    print(info)
+    return info
+
+def printUsageInfo():
+    print(UsageInfo())
+
+def ThemeListStr():
+    return ("\nAvailable themes:\n"
+            "=================\n"
+            "\n".join(sorted(themes_list.keys())))
 
 def printThemeList():
-    print("\nAvailable themes:")
-    print("=================")
-    print("\n".join(sorted(themes_list.keys())))
+    print(ThemeListStr())
 
 """ Instead of executing, I just do a split and load the values into the argparser. """
 def get_j4_cache():
@@ -122,17 +123,15 @@ if __name__ == "__main__":
             print("Error: No themes found.")
             exit(1)
 
-    parser = argparse.ArgumentParser(description='i3 config generator/switcher')
-    # This lambda is a horrible, horrible hack that relies on the fact that the prints return "None."
-    parser.add_argument(
-            '-h', '--help',
-            action=(lambda *_,**__: printUsageInfo() or printThemeList() or exit(0)))
+    parser = argparse.ArgumentParser(description='i3 config generator/switcher',
+            usage=UsageInfo()+"\n"+ThemeListStr())
     parser.add_argument(
             '-i', '--interactive', action='store_true',
             help="Uses rofi to select a theme.")
     parser.add_argument('-r', '--refresh', action='store_true',
             help='Reload i3 after creating the config file.')
-    parser.add_argument('-a', '--append', action='append', metavar='<file-name>',
+    parser.add_argument('-a', '--append', action='append',
+            metavar='<file-name>', default=list(),
             help="Append additional configuration files located "
                  "in the i3 config directory.")
     parser.add_argument('theme', action='store', nargs='?',
@@ -140,7 +139,7 @@ if __name__ == "__main__":
             help="Create a config file using a specific theme or no theme.")
 
     ## Parsing the arguments.
-    if len(sys.argv)==1:
+    if len(argv)==1:
         args = parser.parse_args(get_j4_cache())
     else:
         args = parser.parse_args() 
@@ -158,7 +157,9 @@ if __name__ == "__main__":
     if args.theme is None:
         print("Error: theme argument is missing.")
         exit(1)
-    if args.theme != 'none':
+    if args.theme == 'none':
+        args.theme = None
+    else:
         # try to open given filename
         try:
             themefile = open(themes_list[args.theme], "r")
@@ -214,10 +215,10 @@ if __name__ == "__main__":
     # and insert theme config at the right place
     for line in baselines_list:
         if line.lstrip().startswith("# $i3-theme-window"):
-            if not noTheme:
+            if args.theme is not None:
                 configfile.write(windowText)
         elif line.lstrip().startswith("# $i3-theme-bar"):
-            if not noTheme:
+            if args.theme is not None:
                 configfile.write(barText)
         else:
             configfile.write(line)
