@@ -98,8 +98,6 @@ def set_j4_cache(theme_name, interactive=False):
     rcfile.write(commandString)
     rcfile.flush()
     rcfile.close()
-    
-    exit(0)
 
 if __name__ == "__main__":
     ## Configuring the work environment.
@@ -239,3 +237,4 @@ if __name__ == "__main__":
     
     # store commandstring in rc file
     set_j4_cache(args.theme, interactive=False)
+    exit(0)
