@@ -113,13 +113,18 @@ if __name__ == "__main__":
         i3_CONFIG_PATH = i3_PATH + "/config"
         # fill themes dictionary with names and paths
         try:
-            if path.exists(SYSTEM_THEME_PATH):
-                for theme in listdir(SYSTEM_THEME_PATH):
-                    themes_list[theme] = SYSTEM_THEME_PATH + "/" + theme
-            if path.exists(THEME_PATH):
-                for theme in listdir(THEME_PATH):
-                    themes_list[theme] = THEME_PATH + "/" + theme
+            for theme in listdir(SYSTEM_THEME_PATH):
+                themes_list[theme] = SYSTEM_THEME_PATH + sep + theme
         except (IOError, OSError):
+            pass
+
+        try:
+            for theme in listdir(THEME_PATH):
+                themes_list[theme] = THEME_PATH + sep + theme
+        except (IOError, OSError):
+            pass
+
+        if themes_list == {}:
             print("Error: No themes found.")
             exit(1)
 
