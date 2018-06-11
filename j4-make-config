@@ -42,8 +42,7 @@ def detectConfigDir():
         return False
 
 def UsageInfo():
-    info = """i3 config generator/switcher\n
-Usage examples:
+    info = """Usage examples:
 ===============
 Create config file and include a specific theme:
 \tj4-make-config <theme-name>
@@ -128,8 +127,9 @@ if __name__ == "__main__":
             print("Error: No themes found.")
             exit(1)
 
-    parser = argparse.ArgumentParser(description='i3 config generator/switcher',
-            usage=UsageInfo()+"\n"+ThemeListStr())
+    parser = argparse.ArgumentParser(description='i3 config generator/switcher')
+    parser.add_argument('--themes', action='store_true',
+            help="Displays all available themes.")
     parser.add_argument(
             '-i', '--interactive', action='store_true',
             help="Uses rofi to select a theme.")
@@ -148,6 +148,9 @@ if __name__ == "__main__":
         args = parser.parse_args(get_j4_cache())
     else:
         args = parser.parse_args() 
+    if args.themes:
+        print(ThemeListStr())
+        exit(0)
     if args.interactive:
         ps = Popen("echo '%s' | rofi -width 30 -dmenu -p 'Set i3 theme:'" % \
                 ("\n".join(sorted(themes_list.keys()))),
