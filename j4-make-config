@@ -4,7 +4,7 @@
 # by Oliver Kraitschy
 # http://okraits.de okraits@arcor.de
 
-from os import path, getenv, listdir, system
+from os import path, getenv, listdir, system, sep
 from sys import argv
 import argparse
 from subprocess import Popen, PIPE
