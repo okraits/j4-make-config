@@ -64,7 +64,7 @@ def printUsageInfo():
 
 def ThemeListStr():
     return ("\nAvailable themes:\n"
-            "=================\n"
+            "=================\n" + 
             "\n".join(sorted(themes_list.keys())))
 
 def printThemeList():
