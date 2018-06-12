@@ -181,7 +181,7 @@ if __name__ == "__main__":
         for line in ps.stdout:
             args.theme = line[:-1]
             args.refresh = True
-            set_j4_cache(args.theme, interactive=True)
+            #set_j4_cache(args.theme, interactive=True)
         if args.theme is None:
             exit(0)
 
@@ -264,5 +264,5 @@ if __name__ == "__main__":
         system("i3-msg reload")
 
     # store commandstring in rc file
-    set_j4_cache(args.theme, reread=(len(argv)==1))
+    set_j4_cache(args.theme, interactive=args.interactive, reread=(len(argv)==1))
     exit(0)
