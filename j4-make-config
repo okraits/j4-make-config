@@ -104,7 +104,11 @@ def get_j4_cache():
         print("Error: file %s does not exist yet." % (getenv("HOME") + "/.j4-make-config.rc"))
         exit(1)
 
-def set_j4_cache(theme_name, interactive=False):
+def set_j4_cache(theme_name, interactive=False, reread=False):
+    if reread:
+        return
+    if theme_name is None:
+        theme_name = 'none'
     if interactive:
         commandString = argv[0] + ' -r ' + theme_name
     else:
@@ -260,5 +264,5 @@ if __name__ == "__main__":
         system("i3-msg reload")
 
     # store commandstring in rc file
-    set_j4_cache(args.theme, interactive=False)
+    set_j4_cache(args.theme, reread=(len(argv)==1))
     exit(0)
