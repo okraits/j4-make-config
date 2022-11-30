@@ -1,5 +1,7 @@
 ## j4-make-config (a.k.a. i3-theme)
 
+**NOTICE: this repository is archived because i3 now has the ability to read configuration split into several files (see the include directive). Thus I don't use and maintain this project anymore.**
+
 #### Universal theme switcher and config generator for the i3 wm
 
 ### Overview
