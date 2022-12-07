@@ -1,0 +1,22 @@
+# nord theme for i3
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #3b4252 #2e3440 #d8dee9 #5e81ac
+client.focused_inactive #2e3440 #4c566a #d8dee9 #4c566a
+client.unfocused        #2e3440 #4c566a #d8dee9 #4c566a
+client.urgent           #bf616a #5e81ac #2e3440 #5e81ac
+
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '#2e3440'
+
+# $i3-theme-bar
+colors {
+	background #4c566a
+	statusline #d8dee9
+	separator #2e3440
+	focused_workspace #434c5e #2e3440 #d8dee9
+	active_workspace #2e3440 #d8dee9 #d8dee9
+	inactive_workspace #3b4252 #4c566a #d8dee9
+	urgent_workspace   #81a1cf #5e81ac #2e3440
+}
